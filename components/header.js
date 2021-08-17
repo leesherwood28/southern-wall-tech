@@ -14,13 +14,17 @@ export default function Header() {
   return (
         <header className="bg-black h-12 flex items-stretch">
             <div className="flex items-stretch">
-                <Menu>
-                    {links.map(link => (<SideNavLink key={link.href} text={link.text} href={link.href}></SideNavLink>))}
-                </Menu>
+                <div className="flex md:hidden items-stretch">
+                    <Menu>
+                        {links.map(link => (<SideNavLink key={link.href} text={link.text} href={link.href}></SideNavLink>))}
+                    </Menu>
+                </div>
             </div>
             
             <div className="flex-grow flex items-stretch justify-center">
-                {links.map(link => (<HeaderLink key={link.href} text={link.text} href={link.href}></HeaderLink>))}
+                <div className="hidden items-stretch md:flex">
+                    {links.map(link => (<HeaderLink className="sm:hidden" key={link.href} text={link.text} href={link.href}></HeaderLink>))}
+                </div>
             </div>
             <div className="flex items-stretch">
                 <ContactButton></ContactButton>
