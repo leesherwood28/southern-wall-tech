@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react"
-import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 
 const MenuContext = createContext(false);
@@ -27,7 +26,7 @@ function MenuOverlay({children}) {
   return (
     <>
     { !isOpen ? '' : (
-      <div onClick={() => setOpen(!isOpen)} className="z-10 bg-black bg-opacity-20 h-screen w-screen absolute flex items-stretch">
+      <div onClick={() => setOpen(!isOpen)} className="z-10 bg-black bg-opacity-20 inset-0 absolute flex items-stretch">
       </div>
      )}
 
