@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react"
 import { useSpring, animated } from '@react-spring/web'
+import {GiHamburgerMenu} from 'react-icons/gi'
 
 const MenuContext = createContext(false);
 
@@ -9,7 +10,11 @@ export default function Menu({children}) {
 
     return (
       <MenuContext.Provider value={[isOpen, setOpen]}>
-        <button onClick={() => setOpen(!isOpen)} className="text-white px-8 flex items-center hover:bg-white hover:bg-opacity-20">Burger Icon</button>
+        <button 
+            onClick={() => setOpen(!isOpen)} 
+            className="text-white h-12 w-12 flex items-center justify-center hover:bg-white hover:bg-opacity-20">
+            <GiHamburgerMenu></GiHamburgerMenu>
+        </button>
         <MenuOverlay>{children}</MenuOverlay>
       </MenuContext.Provider>
 

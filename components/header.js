@@ -10,7 +10,7 @@ export default function Header() {
       {text: "About", href: "/About"},
       {text: "Gallery", href: "/Gallery"},
     ]
-
+    
   return (
         <header className="bg-black h-12 flex items-stretch">
             <div className="flex items-stretch">
