@@ -2,6 +2,24 @@ import Head from 'next/head'
 import FeatureDisplay from '../components/feature-display'
 
 export default function Home() {
+
+  const features = [
+    {
+      image: "/qa.svg",
+      alt: "Image of quality assurance manager",
+      text: "High Quality Rendering"
+    },
+    {
+      image: "/contract.svg",
+      alt: "Image of contract",
+      text: "Proffesional Conduct"
+    },
+    {
+      image: "/houses.svg",
+      alt: "Image of multiple buildings",
+      text: "Over 20 Years Of Experience"
+    },
+  ]
   return (
     <>
       <Head>
@@ -13,14 +31,15 @@ export default function Home() {
         <section>
           <h1 className="text-5xl font-light">Southern Wall Tech</h1>
         </section>
-        <section>
-          <div>
-            <FeatureDisplay
-              image="/qa.svg"
-              alt="Image of quality assurance manager"
-              text="Quality Assured"
-            ></FeatureDisplay>
-
+        <section className="self-stretch px-40">
+          <div className="flex justify-between">
+            {features.map(f => (
+              <FeatureDisplay 
+                key={f.image} 
+                image={f.image}
+                text={f.text}>
+              </FeatureDisplay>))}
+            <div></div>
           </div>
         </section>
       </div>
