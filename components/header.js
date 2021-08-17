@@ -7,6 +7,8 @@ export default function Header() {
             <div></div>
             
             <div className="flex-grow flex items-stretch justify-center">
+                <HeaderLink text="Home" href="/"></HeaderLink>
+                <HeaderLink text="About" href="/"></HeaderLink>
                 <HeaderLink text="Gallery" href="/Gallery"></HeaderLink>
             </div>
             <div className="flex items-stretch">
