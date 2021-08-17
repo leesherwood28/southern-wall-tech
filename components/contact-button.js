@@ -1,4 +1,4 @@
-
+import {HiOutlineMail} from 'react-icons/hi'
 export default function ContactButton() {
   return (
     <a 
@@ -12,7 +12,7 @@ export default function ContactButton() {
                 focus:outline-none 
                 active:bg-pink-700 
                 flex items-center">
-        Contact
+      <HiOutlineMail className="mr-2 mt-0.5"></HiOutlineMail>  Contact
     </a>
   )
 }
