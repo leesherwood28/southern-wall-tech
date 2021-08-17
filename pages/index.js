@@ -7,7 +7,7 @@ export default function Home() {
     {
       image: "/qa.svg",
       alt: "Image of quality assurance manager",
-      text: "High Quality Rendering"
+      text: "High Quality Plastering And Rendering"
     },
     {
       image: "/contract.svg",
