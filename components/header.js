@@ -1,11 +1,11 @@
 import ContactButton from './contact-button'
 import HeaderLink from './header-link'
-import { slide as Menu } from 'react-burger-menu'
+import Menu from './menu';
 
 export default function Header() {
   return (
         <header className="bg-black h-12 flex items-stretch">
-            <div>
+            <div className="flex items-stretch">
                 <Menu>
                     <HeaderLink text="Home" href="/"></HeaderLink>
                     <HeaderLink text="About" href="/"></HeaderLink>
