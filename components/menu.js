@@ -6,12 +6,12 @@ const MenuContext = createContext(false);
 
 export default function Menu({children}) {
 
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
 
     return (
       <MenuContext.Provider value={[isOpen, setOpen]}>
         <button onClick={() => setOpen(!isOpen)} className="text-white px-8 flex items-center hover:bg-white hover:bg-opacity-20">Burger Icon</button>
-        {isOpen ? <MenuOverlay>{children}</MenuOverlay> : null}
+        <MenuOverlay>{children}</MenuOverlay>
       </MenuContext.Provider>
 
     )
@@ -21,11 +21,17 @@ export default function Menu({children}) {
 function MenuOverlay({children}) {
 
   const [isOpen, setOpen] = useContext(MenuContext);
-  const [ref, { width }] = useMeasure()
+  const styles = useSpring({ transform: isOpen ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%,0,0)'});
+
   
   return (
+    <>
+    { !isOpen ? '' : (
       <div onClick={() => setOpen(!isOpen)} className="z-10 bg-black bg-opacity-20 h-screen w-screen absolute flex items-stretch">
-        <div className="bg-black d-flex flex-col text-white w-60 pt-20 items-center animate-move-in-left">{children}</div>
       </div>
+     )}
+
+      <animated.div style={styles} className="z-10 absolute h-screen left-0 bg-black d-flex flex-col text-white w-60 pt-20 items-center">{children}</animated.div>
+    </>
     )
 }
