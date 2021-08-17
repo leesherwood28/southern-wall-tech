@@ -1,6 +1,8 @@
+import Link from 'next/link';
 
 export default function HeaderLink({href, text}) {
     return (
+      <Link href={href}>
       <a 
         className="
           text-white 
@@ -11,10 +13,11 @@ export default function HeaderLink({href, text}) {
           focus:outline-none 
           focus:bg-white 
           focus:bg-opacity-20
-          active:bg-opacity-30" 
-        href={href}>
+          active:bg-opacity-30">
           {text}
         </a>
+      </Link>
+
     )
   }
   
