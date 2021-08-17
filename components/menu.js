@@ -22,7 +22,7 @@ function MenuOverlay({children}) {
 
   return (
       <div onClick={() => setOpen(!isOpen)} className="z-10 bg-black bg-opacity-20 h-screen w-screen absolute flex items-stretch">
-        <div className="bg-black d-flex flex-col text-white w-60 pt-20 items-center">{children}</div>
+        <div className="bg-black d-flex flex-col text-white w-60 pt-20 items-center animate-move-in-left">{children}</div>
       </div>
     )
 }
