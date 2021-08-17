@@ -1,7 +1,6 @@
-import styles from './layout.module.css'
 
 export default function ContactButton() {
   return (
-    <button>Contact</button>
+    <button className="bg-pink-700 text-white h-full p-2">Contact</button>
   )
 }

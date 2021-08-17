@@ -1,9 +1,8 @@
-import styles from './header.module.css'
 import ContactButton from './contact-button'
 
 export default function Header() {
   return (
-        <header className={styles.header}>
+        <header className="bg-black h-12 flex items-center">
             <ContactButton></ContactButton>
         </header>
   )
