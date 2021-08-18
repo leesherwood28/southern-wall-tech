@@ -11,7 +11,7 @@ export default function ImageCarousel({images}) {
   const [props, api] = useSprings(
       images.length,
       i => ({
-          x: i*width,
+          x: i * width,
           scale: width === 0 ? 0 : 1,
           display: 'block',
       }), 
@@ -33,7 +33,7 @@ export default function ImageCarousel({images}) {
   return (
     <div ref={ref} className="overflow-hidden flex items-center">
         {props.map(({x, display, scale}, i) =>
-            <animated.div {...bind()} key={i} style={{ display, x }}>
+            <animated.div className="absolute w-full h-full" {...bind()} key={i} style={{ display, x }}>
                  <animated.div style={{ scale}}>
                      <CarouselImage image={images[i]}></CarouselImage>
                  </animated.div>
