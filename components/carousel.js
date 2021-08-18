@@ -33,7 +33,7 @@ export default function ImageCarousel({images}) {
   return (
     <div ref={ref} className="h-40 w-40  relative overflow-hidden">
         {props.map(({x, display, scale}, i) =>
-            <animated.div className="absolute w-full h-full" {...bind()} key={i} style={{ display, x }}>
+            <animated.div className="absolute w-full h-full will-transform" {...bind()} key={i} style={{ display, x }}>
                  <animated.div style={{ scale}}>
                      <CarouselImage image={images[i]}></CarouselImage>
                  </animated.div>
@@ -46,7 +46,7 @@ export default function ImageCarousel({images}) {
 function CarouselImage({image}) {
     return (
         <div className="w-full flex-none flex items-center justify-center">
-            <Image src={image.href} alt={image.alt} width={200} height={200}></Image>
+            <Image className="pointer-events-none select-none" src={image.href} alt={image.alt} width={200} height={200}></Image>
         </div>
     )
 }
