@@ -46,7 +46,7 @@ export default function Home() {
       <div className="flex flex-col items-center py-10">
         <div className="lg:w-4/5 xl:w-3/5 flex flex-col items-center">
           <section>
-            <ImageCarousel images={images}></ImageCarousel>
+            <ImageCarousel className="w-96 h-80" images={images}></ImageCarousel>
           </section>
 
           <section>
