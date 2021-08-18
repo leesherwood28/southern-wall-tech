@@ -27,7 +27,10 @@ export default function AdCarousel() {
       autoRotate={true}
     >
       {adds.map((add) => (
-        <div key={add.image} className='h-full flex items-center'>
+        <div
+          key={add.image}
+          className='h-full flex items-center justify-center sm:justify-start'
+        >
           <div className='w-36 sm:w-60 md:w-80 lg:w-96 flex items-center justify-center'>
             <Image
               src={add.image}
