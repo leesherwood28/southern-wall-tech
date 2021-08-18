@@ -4,7 +4,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
 import useMeasure from 'react-use-measure';
 
-export default function ImageCarousel({ images, userCanMove, autoRotate }) {
+export default function ImageCarousel({
+  images,
+  userCanMove,
+  autoRotate,
+  imgHeight,
+  imgWidth,
+  className,
+}) {
   const index = useRef(0);
 
   const [ref, { width }] = useMeasure();
@@ -95,13 +102,13 @@ export default function ImageCarousel({ images, userCanMove, autoRotate }) {
   }, [transitionCarousel, autoRotate]);
 
   return (
-    <div className='flex items-center'>
+    <div className={`flex items-center ${className}`}>
       {userCanMove ? (
         <MoveButton direction='prev' onClick={transitionCarousel}></MoveButton>
       ) : (
         ''
       )}
-      <div ref={ref} className='h-40 w-40  relative overflow-hidden'>
+      <div ref={ref} className='relative overflow-hidden self-stretch flex-1'>
         {props.map(({ x, display, scale }, i) => (
           <animated.div
             className='absolute w-full h-full will-transform'
@@ -110,7 +117,11 @@ export default function ImageCarousel({ images, userCanMove, autoRotate }) {
             style={{ display, x, touchAction: 'none' }}
           >
             <animated.div className='h-full w-full' style={{ scale }}>
-              <CarouselImage image={images[i]}></CarouselImage>
+              <CarouselImage
+                image={images[i]}
+                imgWidth={imgWidth}
+                imgHeight={imgHeight}
+              ></CarouselImage>
             </animated.div>
           </animated.div>
         ))}
@@ -144,7 +155,7 @@ function MoveButton({ direction, onClick }) {
   );
 }
 
-function CarouselImage({ image }) {
+function CarouselImage({ image, imgHeight, imgWidth }) {
   return (
     <div className='w-full h-full relative'>
       <div className='h-full w-full'></div>
@@ -152,8 +163,8 @@ function CarouselImage({ image }) {
         <Image
           src={image.href}
           alt={image.alt}
-          width={300}
-          height={300}
+          width={imgWidth}
+          height={imgHeight}
         ></Image>
       </div>
     </div>
