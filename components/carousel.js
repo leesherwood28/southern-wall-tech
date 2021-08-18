@@ -8,7 +8,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
   const index = useRef(0);
 
   const [ref, { width }] = useMeasure();
-  const [props, api] = useSprings(
+  const [props, springApi] = useSprings(
     images.length,
     (i) => ({
       x: i * width,
@@ -17,7 +17,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
     }),
     [width]
   );
-  const bind = useDrag(
+  const dragBind = useDrag(
     ({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
       const direction = xDir > 0 ? 'prev' : 'next';
       const shouldTransition = distance > width / 2;
@@ -49,7 +49,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
 
   const animateCarousel = useCallback(
     (otherVisibleIndex, offsetX = 0) => {
-      api.start((i) => {
+      springApi.start((i) => {
         const diff = i - index.current;
         const imageWrap = Math.abs(diff) >= images.length / 2;
         const indexPlacement = imageWrap
@@ -67,7 +67,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
         };
       });
     },
-    [images.length, width, api]
+    [images.length, width, springApi]
   );
 
   const transitionCarouselToIndex = useCallback(
@@ -104,7 +104,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
         {props.map(({ x, display, scale }, i) => (
           <animated.div
             className='absolute w-full h-full will-transform'
-            {...bind()}
+            {...dragBind()}
             key={i}
             style={{ display, x, touchAction: 'none' }}
           >
