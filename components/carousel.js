@@ -1,15 +1,10 @@
-import { useRef,useEffect } from 'react'
-import { useSprings, animated } from '@react-spring/web'
-import useMeasure from 'react-use-measure'
-import { useDrag } from 'react-use-gesture'
-import clamp from 'lodash.clamp'
+import { animated, useSprings } from '@react-spring/web'
 import Image from 'next/image'
-import { HiOutlineMail } from 'react-icons/hi'
+import { useRef } from 'react'
+import { useDrag } from 'react-use-gesture'
+import useMeasure from 'react-use-measure'
 
 
-function reducer(state, action) {
-
-}
 
 export default function ImageCarousel({images}) {
   const index = useRef(0);
