@@ -31,7 +31,7 @@ export default function ImageCarousel({images}) {
   })
 
   return (
-    <div ref={ref} className="overflow-hidden flex items-center">
+    <div ref={ref} className="h-40 w-40  relative overflow-hidden">
         {props.map(({x, display, scale}, i) =>
             <animated.div className="absolute w-full h-full" {...bind()} key={i} style={{ display, x }}>
                  <animated.div style={{ scale}}>
