@@ -27,15 +27,21 @@ export default function ImageCarousel({images}) {
   )
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
     const direction = xDir > 0 ? "prev" : "next";
-    if (active && distance > width / 2) {
-      cancel();
-      transitionCarousel(direction);
-      return;
-    }
+    const shouldTransition = distance > width / 2;
     if (active) {
-        animateCarousel(index.current, getNextCarouselIndex(direction), mx)
+        if (shouldTransition) {
+            console.log("cancel")
+            cancel();
+        } else {
+            animateCarousel(getNextCarouselIndex(direction), mx);
+        }
+        return;
+    }
+    if (shouldTransition) {
+        console.log("transitioning car", direction);
+        transitionCarousel(direction);
     } else {
-        transitionCarouselToIndex(index.current);
+        animateCarousel(getNextCarouselIndex(direction));
     }
   })
   const transitionCarousel = (direction) => {
@@ -49,15 +55,15 @@ export default function ImageCarousel({images}) {
 
       const prevIndex = index.current;
       index.current = i;
-      animateCarousel(index.current, prevIndex);
+      animateCarousel(prevIndex);
   }
 
-  const animateCarousel = (nextIndex, prevIndex, offsetX = 0) => {
+  const animateCarousel = (otherVisibleIndex, offsetX = 0) => {
     api.start(i => {
-        const diff = i - nextIndex;
+        const diff = i - index.current;
         const x = (Math.abs(diff) >= (images.length / 2) ? -1 : 1) * diff * width + offsetX;
         const scale = 1 - Math.abs(offsetX) / width / 2
-        const isDisplayed = (i === nextIndex || i === prevIndex);
+        const isDisplayed = (i === index.current || i === otherVisibleIndex);
         return { 
             x,
             scale,
