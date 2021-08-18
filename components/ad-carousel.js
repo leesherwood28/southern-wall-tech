@@ -1,4 +1,4 @@
-import ImageCarousel from './carousel';
+import Carousel from './carousel';
 
 export default function AdCarousel() {
   const adds = [
@@ -20,13 +20,8 @@ export default function AdCarousel() {
   ];
 
   return (
-    <ImageCarousel
-      images={images}
-      className='w-full h-96'
-      userCanMove={false}
-      autoRotate={true}
-      imgWidth={1000}
-      imgHeight={800}
-    ></ImageCarousel>
+    <Carousel userCanMove={false} autoRotate={true}>
+      {(adds) => <div className='w-40 h-40'></div>}
+    </Carousel>
   );
 }

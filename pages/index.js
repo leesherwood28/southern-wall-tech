@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import AdCarousel from '../components/ad-carousel';
-import ImageCarousel from '../components/carousel';
+import Carousel from '../components/carousel';
 import FeatureDisplay from '../components/feature-display';
 
 export default function Home() {
