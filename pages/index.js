@@ -34,7 +34,7 @@ export default function Home() {
     {
       href: "/houses.svg",
       alt: "Image of multiple buildings",
-    },
+    }
   ]
 
   return (
