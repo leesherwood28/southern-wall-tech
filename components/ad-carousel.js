@@ -21,10 +21,24 @@ export default function AdCarousel() {
   ];
 
   return (
-    <Carousel className='h-96 w-full' userCanMove={false} autoRotate={true}>
+    <Carousel
+      className='h-56 sm:h-60 md:h-72 lg:h-96 w-full p-4'
+      userCanMove={false}
+      autoRotate={true}
+    >
       {adds.map((add) => (
-        <div key={add.image}>
-          <Image src={add.image} alt={add.alt} width={500} height={500}></Image>
+        <div key={add.image} className='h-full flex items-center'>
+          <div className='w-36 sm:w-60 md:w-80 lg:w-88 flex items-center justify-center'>
+            <Image
+              src={add.image}
+              alt={add.alt}
+              width={334}
+              height={464}
+            ></Image>
+          </div>
+          <div className='w-48 sm:w-60 md:w-80 lg:w-88 sm:text-2xl md:text-3xl lg:text-3xl flex items-center p-10 font-light text-center'>
+            {add.text}
+          </div>
         </div>
       ))}
     </Carousel>
