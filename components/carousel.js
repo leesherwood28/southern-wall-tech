@@ -28,7 +28,7 @@ export default function ImageCarousel({images}) {
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
     if (active && distance > width / 2) {
       cancel();
-      moveItem(xDir > 0 ? "prev" : "next");
+      transitionCarousel(xDir > 0 ? "prev" : "next");
       return;
     }
     if (active) {
@@ -38,17 +38,21 @@ export default function ImageCarousel({images}) {
             return { x, scale, display: 'block' }
         })
     } else {
-        moveToCurrent();
+        transitionCarouselToIndex(index.current);
     }
   })
-  const moveItem = (direction) => {
-
-      index.current = clamp(index.current + (direction === "next" ? 1 : -1), 0, images.length - 1);
-      moveToCurrent();
+  const transitionCarousel = (direction) => {
+    transitionCarouselToIndex(getNextCarouselIndex(direction));
   }
 
-  const moveToCurrent = () => {
-    api.start(i => {
+  const getNextCarouselIndex = (direction) => {
+    return clamp(index.current + (direction === "next" ? 1 : -1),0, images.length - 1);
+  }
+  const transitionCarouselToIndex = (i) => {
+
+      index.current = i;
+
+      api.start(i => {
         if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
         const x = (i - index.current) * width;
         return { x,display: 'block' }
@@ -57,7 +61,7 @@ export default function ImageCarousel({images}) {
 
   return (
     <div className="flex items-center">
-        <MoveButton direction="prev" onClick={moveItem}></MoveButton>
+        <MoveButton direction="prev" onClick={transitionCarousel}></MoveButton>
         <div ref={ref} className="h-40 w-40  relative overflow-hidden">
             {props.map(({x, display, scale}, i) =>
             
@@ -68,7 +72,7 @@ export default function ImageCarousel({images}) {
                 </animated.div>
             )}
         </div>
-        <MoveButton direction="next" onClick={moveItem}></MoveButton>
+        <MoveButton direction="next" onClick={transitionCarousel}></MoveButton>
     </div>
   )
 }
