@@ -46,16 +46,22 @@ export default function ImageCarousel({images}) {
   }
 
   const getNextCarouselIndex = (direction) => {
-    return clamp(index.current + (direction === "next" ? 1 : -1),0, images.length - 1);
+    return (index.current + (direction === "next" ? 1 : -1)) % images.length;
   }
   const transitionCarouselToIndex = (i) => {
 
+      const prevIndex = index.current;
       index.current = i;
 
       api.start(i => {
-        if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
-        const x = (i - index.current) * width;
-        return { x,display: 'block' }
+        const diff = i - index.current;
+        const x = (Math.abs(diff) >= (images.length / 2) ? -1 : 1) * diff * width;
+        const isDisplayed = (i === index.current || i === prevIndex);
+        return { 
+            x,
+            display: isDisplayed ? 'block' : 'none',
+            immediate: !isDisplayed
+        }
       })
   }
 
