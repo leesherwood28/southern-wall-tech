@@ -39,6 +39,13 @@ export default function ImageCarousel({images}) {
   })
   const moveItem = (direction) => {
       console.log(direction);
+      index.current = clamp(index.current + (direction === "next" ? 1 : -1), 0, images.length - 1);
+      console.log(index.current);
+      api.start(i => {
+        if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
+        const x = (i - index.current) * width;
+        return { x,display: 'block' }
+      })
   }
 
   return (
