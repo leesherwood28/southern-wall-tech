@@ -27,21 +27,28 @@ export default function ImageCarousel({images}) {
   )
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
     if (active && distance > width / 2) {
-      index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, images.length - 1)
-      cancel()
+      cancel();
+      moveItem(xDir > 0 ? "prev" : "next");
+      return;
     }
-    api.start(i => {
-      if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
-      const x = (i - index.current) * width + (active ? mx : 0)
-      const scale = active ? 1 - distance / width / 2 : 1
-      return { x, scale, display: 'block' }
-    })
+    if (active) {
+        api.start(i => {
+            const x = (i - index.current) * width + mx;
+            const scale = 1 - distance / width / 2
+            return { x, scale, display: 'block' }
+        })
+    } else {
+        moveToCurrent();
+    }
   })
   const moveItem = (direction) => {
-      console.log(direction);
+
       index.current = clamp(index.current + (direction === "next" ? 1 : -1), 0, images.length - 1);
-      console.log(index.current);
-      api.start(i => {
+      moveToCurrent();
+  }
+
+  const moveToCurrent = () => {
+    api.start(i => {
         if (i < index.current - 1 || i > index.current + 1) return { display: 'none' }
         const x = (i - index.current) * width;
         return { x,display: 'block' }
