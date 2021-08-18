@@ -61,9 +61,17 @@ export default function ImageCarousel({images}) {
   const animateCarousel = (otherVisibleIndex, offsetX = 0) => {
     api.start(i => {
         const diff = i - index.current;
-        const x = (Math.abs(diff) >= (images.length / 2) ? -1 : 1) * diff * width + offsetX;
+        const imageWrap = Math.abs(diff) >= (images.length / 2);
+        const indexPlacement = imageWrap ? 
+                                    (-diff % images.length) :
+                                    diff;
+        const x = indexPlacement * width + offsetX;
         const scale = 1 - Math.abs(offsetX) / width / 2
         const isDisplayed = (i === index.current || i === otherVisibleIndex);
+        console.log(otherVisibleIndex);
+        if (i === 0) {
+            console.log(x, offsetX, diff);
+        }
         return { 
             x,
             scale,
