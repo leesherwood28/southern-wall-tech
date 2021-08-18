@@ -47,9 +47,9 @@ export default function ImageCarousel({images}) {
 function CarouselImage({image}) {
     return (
         <div className="w-full h-full relative">
-            <div className="h-full w-full z-10"></div>
-            <div className="inset-0 absolute z-0">
-                <Image className="inset-0 z-0 select-none" src={image.href} alt={image.alt} width={300} height={300}></Image>
+            <div className="h-full w-full"></div>
+            <div className="inset-0 absolute z--1">
+                <Image src={image.href} alt={image.alt} width={300} height={300}></Image>
             </div>
         </div>
     )

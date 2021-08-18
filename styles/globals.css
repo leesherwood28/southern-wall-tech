@@ -24,4 +24,7 @@ a {
   .will-transform {
     will-change: transform;
   }
+  .z--1 {
+    z-index: -1;
+  }
 }
