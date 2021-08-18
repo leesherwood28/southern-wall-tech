@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
 import useMeasure from 'react-use-measure';
 
-export default function ImageCarousel({
+export default function Carousel({
   images,
   userCanMove,
   autoRotate,
