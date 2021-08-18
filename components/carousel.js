@@ -79,7 +79,7 @@ export default function ImageCarousel({images, canMove, autoRotate}) {
 
   return (
     <div className="flex items-center">
-        <MoveButton direction="prev" onClick={transitionCarousel}></MoveButton>
+        {canMove ? (<MoveButton direction="prev" onClick={transitionCarousel}></MoveButton>) : ''}
         <div ref={ref} className="h-40 w-40  relative overflow-hidden">
             {props.map(({x, display, scale}, i) =>
             
@@ -90,7 +90,7 @@ export default function ImageCarousel({images, canMove, autoRotate}) {
                 </animated.div>
             )}
         </div>
-        <MoveButton direction="next" onClick={transitionCarousel}></MoveButton>
+        {canMove ? (<MoveButton direction="next" onClick={transitionCarousel}></MoveButton>) : ''}
     </div>
   )
 }
