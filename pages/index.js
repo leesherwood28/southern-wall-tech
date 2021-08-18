@@ -18,7 +18,7 @@ export default function Home() {
     {
       image: "/houses.svg",
       alt: "Image of multiple buildings",
-      text: "Over 20 Years Of Experience"
+      text: "Over 20 Years Of Experience On A Range Of Projects"
     },
   ]
 
