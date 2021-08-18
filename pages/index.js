@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import ImageCarousel from '../components/carousel'
 import FeatureDisplay from '../components/feature-display'
 
 export default function Home() {
@@ -20,6 +21,22 @@ export default function Home() {
       text: "Over 20 Years Of Experience"
     },
   ]
+
+  const images = [
+    {
+      href: "/qa.svg",
+      alt: "Image of quality assurance manager",
+    },
+    {
+      href: "/contract.svg",
+      alt: "Image of contract",
+    },
+    {
+      href: "/houses.svg",
+      alt: "Image of multiple buildings",
+    },
+  ]
+
   return (
     <>
       <Head>
@@ -28,6 +45,9 @@ export default function Home() {
       </Head>
       <div className="flex flex-col items-center py-10">
         <div className="lg:w-4/5 xl:w-3/5 flex flex-col items-center">
+          <section>
+            <ImageCarousel images={images}></ImageCarousel>
+          </section>
 
           <section>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-center">Southern Wall Tech</h1>
