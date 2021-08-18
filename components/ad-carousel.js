@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Carousel from './carousel';
 
 export default function AdCarousel() {
@@ -20,8 +21,12 @@ export default function AdCarousel() {
   ];
 
   return (
-    <Carousel userCanMove={false} autoRotate={true}>
-      {(adds) => <div className='w-40 h-40'></div>}
+    <Carousel className='h-full w-full' userCanMove={false} autoRotate={true}>
+      {adds.map((add) => (
+        <div key={add.image} className='w-40 h-40'>
+          <Image src={add.image} alt={add.alt} width={100} height={100}></Image>
+        </div>
+      ))}
     </Carousel>
   );
 }

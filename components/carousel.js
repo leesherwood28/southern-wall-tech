@@ -5,11 +5,9 @@ import { useDrag } from 'react-use-gesture';
 import useMeasure from 'react-use-measure';
 
 export default function Carousel({
-  images,
+  children,
   userCanMove,
   autoRotate,
-  imgHeight,
-  imgWidth,
   className,
 }) {
   const index = useRef(0);
@@ -117,11 +115,7 @@ export default function Carousel({
             style={{ display, x, touchAction: 'none' }}
           >
             <animated.div className='h-full w-full' style={{ scale }}>
-              <CarouselImage
-                image={images[i]}
-                imgWidth={imgWidth}
-                imgHeight={imgHeight}
-              ></CarouselImage>
+              {children.toArray()[i]}
             </animated.div>
           </animated.div>
         ))}
@@ -152,21 +146,5 @@ function MoveButton({ direction, onClick }) {
         />
       </svg>
     </button>
-  );
-}
-
-function CarouselImage({ image, imgHeight, imgWidth }) {
-  return (
-    <div className='w-full h-full relative'>
-      <div className='h-full w-full'></div>
-      <div className='inset-0 absolute z--1'>
-        <Image
-          src={image.href}
-          alt={image.alt}
-          width={imgWidth}
-          height={imgHeight}
-        ></Image>
-      </div>
-    </div>
   );
 }
