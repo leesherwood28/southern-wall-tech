@@ -30,7 +30,6 @@ export default function ImageCarousel({images}) {
     const shouldTransition = distance > width / 2;
     if (active) {
         if (shouldTransition) {
-            console.log("cancel")
             cancel();
         } else {
             animateCarousel(getNextCarouselIndex(direction), mx);
@@ -38,7 +37,6 @@ export default function ImageCarousel({images}) {
         return;
     }
     if (shouldTransition) {
-        console.log("transitioning car", direction);
         transitionCarousel(direction);
     } else {
         animateCarousel(getNextCarouselIndex(direction));
@@ -68,10 +66,6 @@ export default function ImageCarousel({images}) {
         const x = indexPlacement * width + offsetX;
         const scale = 1 - Math.abs(offsetX) / width / 2
         const isDisplayed = (i === index.current || i === otherVisibleIndex);
-        console.log(otherVisibleIndex);
-        if (i === 0) {
-            console.log(x, offsetX, diff);
-        }
         return { 
             x,
             scale,
