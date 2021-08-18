@@ -10,7 +10,7 @@ export default function ImageCarousel({images}) {
 
 function CarouselImage({image}) {
     return (
-        <div className="w-full">
+        <div className="w-full flex-none flex items-center justify-center">
             <Image src={image.href} alt={image.alt} width={200} height={200}></Image>
         </div>
     )
