@@ -115,7 +115,7 @@ export default function Carousel({
             style={{ display, x, touchAction: 'none' }}
           >
             <animated.div className='h-full w-full' style={{ scale }}>
-              {children.toArray()[i]}
+              {children[i]}
             </animated.div>
           </animated.div>
         ))}
