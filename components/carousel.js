@@ -1,13 +1,13 @@
 import { animated, useSprings } from '@react-spring/web'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
 
 
-export default function ImageCarousel({images}) {
-  const index = useRef(0);
+export default function ImageCarousel({images, canMove, autoRotate}) {
+  const [index, setIndex] = useState(0);
 
 
   const [ref, { width }] = useMeasure();
@@ -42,25 +42,25 @@ export default function ImageCarousel({images}) {
   }
 
   const getNextCarouselIndex = (direction) => {
-    return (index.current + (direction === "next" ? 1 : -1) + images.length) % images.length;
+    return (index + (direction === "next" ? 1 : -1) + images.length) % images.length;
   }
   const transitionCarouselToIndex = (i) => {
 
-      const prevIndex = index.current;
-      index.current = i;
+      const prevIndex = index;
+      setIndex(i);
       animateCarousel(prevIndex);
   }
 
   const animateCarousel = (otherVisibleIndex, offsetX = 0) => {
     api.start(i => {
-        const diff = i - index.current;
+        const diff = i - index;
         const imageWrap = Math.abs(diff) >= (images.length / 2);
         const indexPlacement = imageWrap ? 
                                     ((images.length -Math.abs(diff)) % images.length) * (diff > 0 ? -1 : 1):
                                     diff;
         const x = indexPlacement * width + offsetX;
         const scale = 1 - Math.abs(offsetX) / width / 2
-        const isDisplayed = (i === index.current || i === otherVisibleIndex);
+        const isDisplayed = (i === index || i === otherVisibleIndex);
         return { 
             x,
             scale,
@@ -69,6 +69,13 @@ export default function ImageCarousel({images}) {
         }
       })
   }
+
+  useEffect(() => {
+      if (autoRotate) {
+        const id = setTimeout(() => transitionCarousel("next"), 3000);
+        return () => clearTimeout(id);
+      }
+  }, [index])
 
   return (
     <div className="flex items-center">
