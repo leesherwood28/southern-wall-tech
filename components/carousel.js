@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
 import useMeasure from 'react-use-measure';
 
-export default function ImageCarousel({ images, canMove, autoRotate }) {
+export default function ImageCarousel({ images, userCanMove, autoRotate }) {
   const index = useRef(0);
 
   const [ref, { width }] = useMeasure();
@@ -34,7 +34,8 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
       } else {
         animateCarousel(getNextCarouselIndex(direction));
       }
-    }
+    },
+    { enabled: userCanMove }
   );
 
   const getNextCarouselIndex = useCallback(
@@ -95,7 +96,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
 
   return (
     <div className='flex items-center'>
-      {canMove ? (
+      {userCanMove ? (
         <MoveButton direction='prev' onClick={transitionCarousel}></MoveButton>
       ) : (
         ''
@@ -114,7 +115,7 @@ export default function ImageCarousel({ images, canMove, autoRotate }) {
           </animated.div>
         ))}
       </div>
-      {canMove ? (
+      {userCanMove ? (
         <MoveButton direction='next' onClick={transitionCarousel}></MoveButton>
       ) : (
         ''
