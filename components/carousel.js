@@ -14,7 +14,7 @@ export default function Carousel({
 
   const [ref, { width }] = useMeasure();
   const [props, springApi] = useSprings(
-    images.length,
+    children.length,
     (i) => ({
       x: i * width,
       scale: width === 0 ? 0 : 1,
@@ -46,20 +46,20 @@ export default function Carousel({
   const getNextCarouselIndex = useCallback(
     (direction) => {
       return (
-        (index.current + (direction === 'next' ? 1 : -1) + images.length) %
-        images.length
+        (index.current + (direction === 'next' ? 1 : -1) + children.length) %
+        children.length
       );
     },
-    [images.length]
+    [children.length]
   );
 
   const animateCarousel = useCallback(
     (otherVisibleIndex, offsetX = 0) => {
       springApi.start((i) => {
         const diff = i - index.current;
-        const imageWrap = Math.abs(diff) >= images.length / 2;
+        const imageWrap = Math.abs(diff) >= children.length / 2;
         const indexPlacement = imageWrap
-          ? ((images.length - Math.abs(diff)) % images.length) *
+          ? ((children.length - Math.abs(diff)) % children.length) *
             (diff > 0 ? -1 : 1)
           : diff;
         const x = indexPlacement * width + offsetX;
@@ -73,7 +73,7 @@ export default function Carousel({
         };
       });
     },
-    [images.length, width, springApi]
+    [children.length, width, springApi]
   );
 
   const transitionCarouselToIndex = useCallback(
