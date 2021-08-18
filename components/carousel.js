@@ -26,17 +26,14 @@ export default function ImageCarousel({images}) {
       [width]
   )
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
+    const direction = xDir > 0 ? "prev" : "next";
     if (active && distance > width / 2) {
       cancel();
-      transitionCarousel(xDir > 0 ? "prev" : "next");
+      transitionCarousel(direction);
       return;
     }
     if (active) {
-        api.start(i => {
-            const x = (i - index.current) * width + mx;
-            const scale = 1 - distance / width / 2
-            return { x, scale, display: 'block' }
-        })
+        animateCarousel(index.current, getNextCarouselIndex(direction), mx)
     } else {
         transitionCarouselToIndex(index.current);
     }
@@ -46,19 +43,24 @@ export default function ImageCarousel({images}) {
   }
 
   const getNextCarouselIndex = (direction) => {
-    return (index.current + (direction === "next" ? 1 : -1)) % images.length;
+    return (index.current + (direction === "next" ? 1 : -1) + images.length) % images.length;
   }
   const transitionCarouselToIndex = (i) => {
 
       const prevIndex = index.current;
       index.current = i;
+      animateCarousel(index.current, prevIndex);
+  }
 
-      api.start(i => {
-        const diff = i - index.current;
-        const x = (Math.abs(diff) >= (images.length / 2) ? -1 : 1) * diff * width;
-        const isDisplayed = (i === index.current || i === prevIndex);
+  const animateCarousel = (nextIndex, prevIndex, offsetX = 0) => {
+    api.start(i => {
+        const diff = i - nextIndex;
+        const x = (Math.abs(diff) >= (images.length / 2) ? -1 : 1) * diff * width + offsetX;
+        const scale = 1 - Math.abs(offsetX) / width / 2
+        const isDisplayed = (i === nextIndex || i === prevIndex);
         return { 
             x,
+            scale,
             display: isDisplayed ? 'block' : 'none',
             immediate: !isDisplayed
         }
