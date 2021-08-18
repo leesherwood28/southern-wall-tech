@@ -4,6 +4,7 @@ import useMeasure from 'react-use-measure'
 import { useDrag } from 'react-use-gesture'
 import clamp from 'lodash.clamp'
 import Image from 'next/image'
+import { HiOutlineMail } from 'react-icons/hi'
 
 export default function ImageCarousel({images}) {
   const index = useRef(0);
@@ -34,7 +35,7 @@ export default function ImageCarousel({images}) {
     <div ref={ref} className="h-40 w-40  relative overflow-hidden">
         {props.map(({x, display, scale}, i) =>
             <animated.div className="absolute w-full h-full will-transform" {...bind()} key={i} style={{ display, x, touchAction: 'none' }}>
-                 <animated.div style={{ scale}}>
+                 <animated.div className="h-full w-full" style={{ scale}}>
                      <CarouselImage image={images[i]}></CarouselImage>
                  </animated.div>
             </animated.div>
@@ -45,8 +46,11 @@ export default function ImageCarousel({images}) {
 
 function CarouselImage({image}) {
     return (
-        <div className="w-full flex-none flex items-center justify-center select-none">
-           Hello
+        <div className="w-full h-full relative">
+            <div className="h-full w-full z-10"></div>
+            <div className="inset-0 absolute z-0">
+                <Image className="inset-0 z-0 select-none" src={image.href} alt={image.alt} width={300} height={300}></Image>
+            </div>
         </div>
     )
 }
