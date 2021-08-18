@@ -49,7 +49,8 @@ export default function Home() {
             <ImageCarousel 
               className="w-96 h-80" 
               images={images}
-              canMove={false}>
+              canMove={false}
+              autoRotate={true}>
             </ImageCarousel>
           </section>
 
