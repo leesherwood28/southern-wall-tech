@@ -63,7 +63,7 @@ export default function ImageCarousel({images}) {
         const diff = i - index.current;
         const imageWrap = Math.abs(diff) >= (images.length / 2);
         const indexPlacement = imageWrap ? 
-                                    (-diff % images.length) :
+                                    ((images.length -Math.abs(diff)) % images.length) * (diff > 0 ? -1 : 1):
                                     diff;
         const x = indexPlacement * width + offsetX;
         const scale = 1 - Math.abs(offsetX) / width / 2
