@@ -1,4 +1,4 @@
-import { animated, useSprings } from '@react-spring/web';
+import { animated, useSprings, useSpring } from '@react-spring/web';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
@@ -97,33 +97,57 @@ export default function Carousel({
   }, [transitionCarousel, autoRotate]);
 
   return (
-    <div className={`flex items-center ${className}`}>
-      {userCanMove ? (
-        <MoveButton direction='prev' onClick={transitionCarousel}></MoveButton>
-      ) : (
-        ''
-      )}
-      <div ref={ref} className='relative overflow-hidden self-stretch flex-1'>
-        {props.map(({ x, display, scale }, i) => (
-          <animated.div
-            className='absolute w-full h-full will-transform'
-            {...dragBind()}
-            key={i}
-            style={{ display, x, touchAction: 'none' }}
-          >
-            <animated.div className='h-full w-full' style={{ scale }}>
-              {children[i]}
+    <div className={`flex flex-col items-center ${className}`}>
+      <div className={`flex items-center self-stretch flex-1`}>
+        {userCanMove ? (
+          <MoveButton
+            direction='prev'
+            onClick={transitionCarousel}
+          ></MoveButton>
+        ) : (
+          ''
+        )}
+        <div ref={ref} className='relative overflow-hidden self-stretch flex-1'>
+          {props.map(({ x, display, scale }, i) => (
+            <animated.div
+              className='absolute w-full h-full will-transform'
+              {...dragBind()}
+              key={i}
+              style={{ display, x, touchAction: 'none' }}
+            >
+              <animated.div className='h-full w-full' style={{ scale }}>
+                {children[i]}
+              </animated.div>
             </animated.div>
-          </animated.div>
-        ))}
+          ))}
+        </div>
+        {userCanMove ? (
+          <MoveButton
+            direction='next'
+            onClick={transitionCarousel}
+          ></MoveButton>
+        ) : (
+          ''
+        )}
       </div>
-      {userCanMove ? (
-        <MoveButton direction='next' onClick={transitionCarousel}></MoveButton>
-      ) : (
-        ''
-      )}
     </div>
   );
+}
+
+function Counter({ currentIndex, children }) {
+  const dots = [...Array(children.length).keys()].map((i) => (
+    <Dot key={i} active={currentIndex === i}></Dot>
+  ));
+  return <div>{dots}</div>;
+}
+
+function Dot({ active }) {
+  const { transform } = useSpring({
+    opacity: active ? 1 : 0.8,
+    transform: active ? `scale(1.5)` : `scale(1)`,
+    config: { mass: 5, tension: 500, friction: 80 },
+  });
+  return <animated.div style={transform}></animated.div>;
 }
 
 function MoveButton({ direction, onClick }) {
