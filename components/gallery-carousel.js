@@ -6,5 +6,12 @@ export default function GalleryCarousel() {
     thumbnail: `/gallery-${i}.jpg`,
   }));
 
+  const images1 = [
+    {
+     original: ,
+     thumbnail: ``
+    }
+  ]
+
   return <ImageGallery items={images}></ImageGallery>;
 }
