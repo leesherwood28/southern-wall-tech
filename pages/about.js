@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Article from '../components/article';
 import DualPageLayout from '../components/dual-page-layout';
 import GalleryCarousel from '../components/gallery-carousel';
@@ -14,7 +15,15 @@ export default function About() {
         />
       </Head>
       <DualPageLayout>
-        <GalleryCarousel></GalleryCarousel>
+        <div className='relative h-full w-full'>
+          <Image
+            src='/construction.svg'
+            alt='Picture of house under construction'
+            layout='fill'
+            objectFit='contain'
+          ></Image>
+        </div>
+
         <Article title='About'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
