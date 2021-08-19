@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-key */
 import Image from 'next/image';
 import Carousel from './carousel';
 
 export default function GalleryCarousel() {
+  const images = [...Array(10).keys()].map((i) => `/gallery-${i}.jpg`);
+
   const adds = [
     {
       image: '/qa.svg',
@@ -26,23 +29,8 @@ export default function GalleryCarousel() {
       userCanMove={false}
       autoRotate={true}
     >
-      {adds.map((add) => (
-        <div
-          key={add.image}
-          className='h-full flex items-center justify-center sm:justify-start'
-        >
-          <div className='w-36 sm:w-60 md:w-80 lg:w-96 flex items-center justify-center'>
-            <Image
-              src={add.image}
-              alt={add.alt}
-              width={334}
-              height={464}
-            ></Image>
-          </div>
-          <div className='w-48 sm:w-60 md:w-80 lg:w-96 sm:text-2xl md:text-3xl lg:text-3xl flex items-center p-10 font-light text-center'>
-            {add.text}
-          </div>
-        </div>
+      {images.map((image) => (
+        <Image src={image} alt='blh' width={334} height={464}></Image>
       ))}
     </Carousel>
   );
