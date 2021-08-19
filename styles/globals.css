@@ -34,6 +34,10 @@ a {
 .image-gallery-icon:hover {
   @apply text-pink-700;
 }
+.image-gallery-icon:focus {
+  outline-color: rgb(190, 24, 93);
+}
+
 .image-gallery-thumbnail.active,
 .image-gallery-thumbnail:focus,
 .image-gallery-thumbnail:hover {
