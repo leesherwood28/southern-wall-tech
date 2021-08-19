@@ -17,7 +17,7 @@ export default function Carousel({
     children.length,
     (i) => ({
       x: i * width,
-      display: 'block',
+      display: i === index.current ? 'block' : 'none',
     }),
     [width]
   );
