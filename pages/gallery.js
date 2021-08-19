@@ -11,10 +11,17 @@ export default function Gallery() {
           content='Rendering and Plastering Company Gallery'
         />
       </Head>
-      <div className='flex flex-col items-center py-2 sm:py-10 px-2 sm:px-12'>
-        <div className='w-full md:max-w-2xl lg:max-w-3xl '>
+      <div className='flex flex-col md:flex-row py-2 sm:py-10 px-2 sm:px-12 items-stretch'>
+        <div className='flex-1 overflow-hidden'>
           <GalleryCarousel></GalleryCarousel>
         </div>
+        <article className='flex-1 flex flex-col p-20 items-center justify-center overflow-hidden'>
+          <h1 className='font-light text-3xl italic'>Gallery</h1>
+          <p className='text-xl'>
+            As a long standing tradesman I pride myself in my work. Here you can
+            view some of the items I pride myself on.
+          </p>
+        </article>
       </div>
     </>
   );
