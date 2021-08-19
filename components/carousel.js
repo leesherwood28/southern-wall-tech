@@ -130,15 +130,20 @@ export default function Carousel({
           ''
         )}
       </div>
+      <Counter
+        className='mt-2'
+        currentIndex={index}
+        numberItems={children.length}
+      ></Counter>
     </div>
   );
 }
 
-function Counter({ currentIndex, children }) {
-  const dots = [...Array(children.length).keys()].map((i) => (
+function Counter({ currentIndex, numberItems, className }) {
+  const dots = [...Array(numberItems).keys()].map((i) => (
     <Dot key={i} active={currentIndex === i}></Dot>
   ));
-  return <div>{dots}</div>;
+  return <div className={`flex items-center ${className}`}>{dots}</div>;
 }
 
 function Dot({ active }) {
@@ -147,7 +152,12 @@ function Dot({ active }) {
     transform: active ? `scale(1.5)` : `scale(1)`,
     config: { mass: 5, tension: 500, friction: 80 },
   });
-  return <animated.div style={transform}></animated.div>;
+  return (
+    <animated.div
+      className='w-2 h-2 m-2 rounded-full bg-black'
+      style={transform}
+    ></animated.div>
+  );
 }
 
 function MoveButton({ direction, onClick }) {
