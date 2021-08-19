@@ -52,5 +52,5 @@ export default function GalleryCarousel() {
     },
   ];
 
-  return <ImageGallery items={images}></ImageGallery>;
+  return <ImageGallery items={images} autoPlay={true}></ImageGallery>;
 }
