@@ -7,6 +7,7 @@ export default function Carousel({
   children,
   userCanMove,
   autoRotate,
+  showCounter,
   className,
 }) {
   const index = useRef(0);
@@ -131,11 +132,13 @@ export default function Carousel({
           ''
         )}
       </div>
-      <Counter
-        className='mt-2'
-        activeIndex={activeIndex}
-        numberItems={children.length}
-      ></Counter>
+      {showCounter ? (
+        <Counter
+          className='mt-2'
+          activeIndex={activeIndex}
+          numberItems={children.length}
+        ></Counter>
+      ) : null}
     </div>
   );
 }
