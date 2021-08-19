@@ -11,8 +11,10 @@ export default function Gallery() {
           content='Rendering and Plastering Company Gallery'
         />
       </Head>
-      <div className='flex flex-col items-center py-0 sm:py-10'>
-        <GalleryCarousel></GalleryCarousel>
+      <div className='flex flex-col items-center py-2 sm:py-10 px-2 sm:px-12'>
+        <div className='w-full md:max-w-2xl lg:max-w-3xl '>
+          <GalleryCarousel></GalleryCarousel>
+        </div>
       </div>
     </>
   );
