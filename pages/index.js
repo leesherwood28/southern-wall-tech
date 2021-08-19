@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import AdCarousel from '../components/ad-carousel';
+import Title from '../components/title';
 
 export default function Home() {
   return (
@@ -14,9 +15,7 @@ export default function Home() {
           <section></section>
 
           <section>
-            <h1 className='text-3xl sm:text-4xl md:text-5xl font-light text-center'>
-              Southern Wall Tech
-            </h1>
+            <Title></Title>
           </section>
         </div>
       </div>
