@@ -7,10 +7,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>Contact</title>
         <meta
           name='description'
-          content='Rendering and Plastering Company About'
+          content='Rendering and Plastering Company Contact'
         />
       </Head>
       <DualPageLayout>
@@ -23,7 +23,7 @@ export default function About() {
           ></Image>
         </div>
 
-        <Article title='About'>
+        <Article title='Contact'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
