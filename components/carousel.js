@@ -132,7 +132,7 @@ export default function Carousel({
       </div>
       <Counter
         className='mt-2'
-        currentIndex={index}
+        currentIndex={index.current}
         numberItems={children.length}
       ></Counter>
     </div>
@@ -147,7 +147,8 @@ function Counter({ currentIndex, numberItems, className }) {
 }
 
 function Dot({ active }) {
-  const { transform } = useSpring({
+  console.log(active);
+  const { transform, opacity } = useSpring({
     opacity: active ? 1 : 0.8,
     transform: active ? `scale(1.5)` : `scale(1)`,
     config: { mass: 5, tension: 500, friction: 80 },
@@ -155,7 +156,7 @@ function Dot({ active }) {
   return (
     <animated.div
       className='w-2 h-2 m-2 rounded-full bg-black'
-      style={transform}
+      style={{ opacity: opacity.to((o) => o), transform }}
     ></animated.div>
   );
 }
