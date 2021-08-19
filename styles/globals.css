@@ -15,8 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-@import '~react-image-gallery/styles/css/image-gallery.css';
-
 /* ./styles/globals.css */
 @tailwind base;
 @tailwind components;
@@ -29,4 +27,10 @@ a {
   .z--1 {
     z-index: -1;
   }
+}
+
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+.image-gallery-icon:hover {
+  @apply text-pink-700;
 }
