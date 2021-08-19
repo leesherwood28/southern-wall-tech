@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 export default function HeaderLink({ href, text }) {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <Link href={href}>
       <a
