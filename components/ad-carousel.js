@@ -16,7 +16,7 @@ export default function AdCarousel() {
     {
       image: '/houses.svg',
       alt: 'Image of multiple buildings',
-      text: 'Over 20 Years Of Experience On A Range Of Projects',
+      text: 'Over 20 Years Of Experience',
     },
   ];
 
