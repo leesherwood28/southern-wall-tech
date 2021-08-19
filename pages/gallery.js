@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Article from '../components/article';
 import GalleryCarousel from '../components/gallery-carousel';
 
 export default function Gallery() {
@@ -15,22 +16,17 @@ export default function Gallery() {
         <div className='flex-1 overflow-hidden'>
           <GalleryCarousel></GalleryCarousel>
         </div>
-        <article className='flex-1 flex flex-col items-center justify-center overflow-hidden'>
-          <div className='p-20 flex flex-col items-center justify-center'>
-            <h1 className='font-light text-5xl italic mb-8 text-pink-700'>
-              Gallery
-            </h1>
-            <p className='text-xl'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </article>
+        <div className='flex-1 flex flex-col items-center justify-center overflow-hidden'>
+          <Article title='Gallery'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Article>
+        </div>
       </div>
     </>
   );
