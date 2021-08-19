@@ -54,13 +54,28 @@ function MenuOverlay({ children }) {
 
       <animated.div
         style={styles}
-        className='z-10 absolute h-screen left-0 bg-black text-white w-60'
+        className='z-10 absolute h-screen left-0 bg-black text-white w-52'
       >
         <div className='h-12 flex items-center'>
           <MenuButton></MenuButton>
         </div>
-        <div className='flex flex-col items-stretch mt-4'>{children}</div>
+        <div className='flex flex-col items-stretch mt-4'>
+          {children.map((child, i) => (
+            <>
+              {child}
+              <MenuItemSeperator></MenuItemSeperator>
+            </>
+          ))}
+        </div>
       </animated.div>
     </>
+  );
+}
+
+function MenuItemSeperator() {
+  return (
+    <div className='flex flex-col items-center'>
+      <div className='h-px w-9/12 bg-blue-200 bg-opacity-20'></div>
+    </div>
   );
 }
