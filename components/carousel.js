@@ -17,7 +17,6 @@ export default function Carousel({
     children.length,
     (i) => ({
       x: i * width,
-      scale: width === 0 ? 0 : 1,
       display: 'block',
     }),
     [width]
@@ -63,11 +62,9 @@ export default function Carousel({
             (diff > 0 ? -1 : 1)
           : diff;
         const x = indexPlacement * width + offsetX;
-        const scale = 1 - Math.abs(offsetX) / width / 2;
         const isDisplayed = i === index.current || i === otherVisibleIndex;
         return {
           x,
-          scale,
           display: isDisplayed ? 'block' : 'none',
           immediate: !isDisplayed,
         };
