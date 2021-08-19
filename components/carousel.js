@@ -147,9 +147,8 @@ function Counter({ currentIndex, numberItems, className }) {
 }
 
 function Dot({ active }) {
-  console.log(active);
   const { transform, opacity } = useSpring({
-    opacity: active ? 1 : 0.8,
+    opacity: active ? 1 : 0.5,
     transform: active ? `scale(1.5)` : `scale(1)`,
     config: { mass: 5, tension: 500, friction: 80 },
   });
