@@ -1,11 +1,17 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useRouter } from 'next/router';
 
 const MenuContext = createContext(false);
 
 export default function Menu({ children }) {
   const [isOpen, setOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => setOpen(false));
+  }, [router]);
 
   return (
     <MenuContext.Provider value={[isOpen, setOpen]}>
@@ -53,7 +59,7 @@ function MenuOverlay({ children }) {
         <div className='h-12 flex items-center'>
           <MenuButton></MenuButton>
         </div>
-        <div className='items-center flex flex-col mt-4'>{children}</div>
+        <div className='flex flex-col items-stretch mt-4'>{children}</div>
       </animated.div>
     </>
   );
