@@ -1,5 +1,4 @@
 import { animated, useSprings, useSpring } from '@react-spring/web';
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag } from 'react-use-gesture';
 import useMeasure from 'react-use-measure';
@@ -11,6 +10,7 @@ export default function Carousel({
   className,
 }) {
   const index = useRef(0);
+  const [activeIndex, setActive] = useState(index.current);
 
   const [ref, { width }] = useMeasure();
   const [props, springApi] = useSprings(
@@ -77,6 +77,7 @@ export default function Carousel({
     (i) => {
       const prevIndex = index.current;
       index.current = i;
+      setActive(i);
       animateCarousel(prevIndex);
     },
     [animateCarousel]
@@ -132,16 +133,16 @@ export default function Carousel({
       </div>
       <Counter
         className='mt-2'
-        currentIndex={index.current}
+        activeIndex={activeIndex}
         numberItems={children.length}
       ></Counter>
     </div>
   );
 }
 
-function Counter({ currentIndex, numberItems, className }) {
+function Counter({ activeIndex, numberItems, className }) {
   const dots = [...Array(numberItems).keys()].map((i) => (
-    <Dot key={i} active={currentIndex === i}></Dot>
+    <Dot key={i} active={activeIndex === i}></Dot>
   ));
   return <div className={`flex items-center ${className}`}>{dots}</div>;
 }
