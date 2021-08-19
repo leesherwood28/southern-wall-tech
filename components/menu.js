@@ -32,6 +32,7 @@ function MenuOverlay({ children }) {
   const [isOpen, setOpen] = useContext(MenuContext);
   const styles = useSpring({
     transform: isOpen ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%,0,0)',
+    config: { mass: 1, tension: 1500, friction: 90 },
   });
 
   return (
@@ -52,7 +53,7 @@ function MenuOverlay({ children }) {
         <div className='h-12 flex items-center'>
           <MenuButton></MenuButton>
         </div>
-        <div className='items-center flex flex-col pt-20'>{children}</div>
+        <div className='items-center flex flex-col mt-4'>{children}</div>
       </animated.div>
     </>
   );
