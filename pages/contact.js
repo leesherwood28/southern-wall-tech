@@ -16,8 +16,8 @@ export default function About() {
       <DualPageLayout>
         <div className='relative h-full w-full'>
           <Image
-            src='/construction.svg'
-            alt='Picture of house under construction'
+            src='/message.svg'
+            alt='Picture of envelope'
             layout='fill'
             objectFit='contain'
           ></Image>
