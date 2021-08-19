@@ -7,7 +7,7 @@ export default function GalleryCarousel() {
 
   return (
     <Carousel
-      className='w-full max-w-xl h-96 p-4'
+      className='h-96 max-w-xl sm:max-w-2xl sm:h-120 md:max-w-3xl md:h-140 w-full p-4'
       userCanMove={true}
       autoRotate={false}
       showCounter={true}
