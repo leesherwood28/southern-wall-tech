@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Article from '../components/article';
+import DualPageLayout from '../components/dual-page-layout';
 import GalleryCarousel from '../components/gallery-carousel';
 
 export default function Gallery() {
@@ -12,25 +13,21 @@ export default function Gallery() {
           content='Rendering and Plastering Company Gallery'
         />
       </Head>
-      <div className='flex flex-col md:flex-row py-2 sm:py-10 px-2 sm:px-12 items-stretch'>
-        <div className='flex-1 overflow-hidden'>
-          <GalleryCarousel></GalleryCarousel>
-        </div>
-        <div className='flex-1 flex flex-col items-center justify-center overflow-hidden'>
-          <Article title='Gallery'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-            <br />
-            <br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </Article>
-        </div>
-      </div>
+      <DualPageLayout>
+        <GalleryCarousel></GalleryCarousel>
+        <Article title='Gallery'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+          <br />
+          <br />
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </Article>
+      </DualPageLayout>
     </>
   );
 }
