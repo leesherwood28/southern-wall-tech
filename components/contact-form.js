@@ -43,6 +43,7 @@ export default function ContactForm() {
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
+  console.log(state);
 
   return (
     <form className='flex flex-col' onSubmit={handleSubmit}>
@@ -53,7 +54,9 @@ export default function ContactForm() {
           label='Email Address'
           variant='outlined'
           fullWidth
-          onChange={() => dispatch({ type: 'change-email' })}
+          onChange={(e) =>
+            dispatch({ type: 'change-email', value: e.target.value })
+          }
         />
       </FieldEntry>
       <FieldEntry>
@@ -67,6 +70,9 @@ export default function ContactForm() {
           rows={4}
           variant='outlined'
           fullWidth
+          onChange={(e) =>
+            dispatch({ type: 'change-message', value: e.target.value })
+          }
         />
       </FieldEntry>
       <div className='self-end'>
