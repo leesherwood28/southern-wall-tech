@@ -1,7 +1,7 @@
-import { useForm, ValidationError } from '@formspree/react';
 import { useReducer } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 import { TextField } from '@material-ui/core';
+import axios from 'axios';
 
 const initialState = {
   email: {
@@ -97,8 +97,6 @@ function reducer(state, action) {
 }
 
 export default function ContactForm() {
-  const [submitState, handleSubmit] = useForm('xjvjppwl');
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   if (state.succeeded) {
