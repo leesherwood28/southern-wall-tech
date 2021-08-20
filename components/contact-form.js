@@ -4,22 +4,25 @@ import { MdDone, MdErrorOutline } from 'react-icons/md';
 import { TextField } from '@material-ui/core';
 import axios from 'axios';
 
-const initialState = {
-  email: {
-    touched: false,
-    valid: false,
-    message: '',
-  },
-  message: {
-    value: '',
-    touched: false,
-    valid: false,
-    message: '',
-  },
-  submitted: false,
-  submitting: false,
-  displayedMessage: null,
-};
+function getInitState() {
+  return {
+    email: {
+      value: '',
+      touched: false,
+      valid: false,
+      message: '',
+    },
+    message: {
+      value: '',
+      touched: false,
+      valid: false,
+      message: '',
+    },
+    submitted: false,
+    submitting: false,
+    displayedMessage: null,
+  };
+}
 
 function isEmpty(value) {
   return !value || /^\s*$/.test(value);
@@ -113,14 +116,14 @@ function reducer(state, action) {
       return setStateDisplayedMessage(action.message, false, state);
     }
     case 'reset':
-      return { ...initialState };
+      return getInitState();
     default:
       throw new Error('action not specified');
   }
 }
 
 export default function ContactForm({ className }) {
-  const [state, dispatch] = useReducer(reducer, { ...initialState });
+  const [state, dispatch] = useReducer(reducer, getInitState());
 
   const handleSubmit = (e) => {
     e.preventDefault();
