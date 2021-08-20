@@ -18,7 +18,7 @@ const initialState = {
   },
   submitted: false,
   submitting: false,
-  message: null,
+  displayedMessage: null,
 };
 
 function isEmpty(value) {
@@ -97,11 +97,14 @@ function reducer(state, action) {
     case 'submitted':
       return { ...state, submitted: action.submitted };
     case 'error':
-      return { ...state, message: { message: action.error, error: true } };
+      return {
+        ...state,
+        displayedMessage: { message: action.error, error: true },
+      };
     case 'success': {
       return {
         ...state,
-        message: {
+        displayedMessage: {
           message: action.message,
           error: false,
         },
@@ -178,6 +181,7 @@ export default function ContactForm() {
           multiline
           rows={4}
           error={!state.message.valid && state.message.touched}
+          helperText={state.message.message}
           variant='outlined'
           fullWidth
           onChange={(e) =>
