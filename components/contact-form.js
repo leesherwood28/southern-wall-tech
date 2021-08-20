@@ -252,13 +252,13 @@ export default function ContactForm({ className }) {
       )}
 
       <div className='self-end'>
-        <SubmitButton></SubmitButton>
+        <SubmitButton submitting={state.submitting}></SubmitButton>
       </div>
     </form>
   );
 }
 
-function SubmitButton({ disabled }) {
+function SubmitButton({ submitting }) {
   return (
     <button
       className='
@@ -276,10 +276,10 @@ function SubmitButton({ disabled }) {
             flex
             items-center'
       type='submit'
-      disabled={true}
+      disabled={submitting}
     >
       <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail>
-      Send
+      {submitting ? 'Submitting...' : 'Send'}
     </button>
   );
 }
