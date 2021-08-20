@@ -51,7 +51,7 @@ function validateMessage(message) {
   if (isEmpty(message)) {
     return {
       valid: false,
-      message: 'Please enter a message',
+      message: 'Please detail the work you are looking for',
     };
   }
   return {
