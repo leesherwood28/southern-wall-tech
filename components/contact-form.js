@@ -169,6 +169,11 @@ export default function ContactForm() {
           onChange={(e) =>
             dispatch({ type: 'change-email', value: e.target.value })
           }
+          onBlur={() => dispatch({ type: 'touch-email' })}
+          error={!state.email.valid && state.email.touched}
+          helperText={
+            !state.email.valid && state.email.touched ? state.email.message : ''
+          }
         />
       </FieldEntry>
       <FieldEntry>
@@ -180,14 +185,18 @@ export default function ContactForm() {
           className='mb-2'
           multiline
           rows={4}
-          error={!state.message.valid && state.message.touched}
-          helperText={state.message.message}
           variant='outlined'
           fullWidth
           onChange={(e) =>
             dispatch({ type: 'change-message', value: e.target.value })
           }
           onBlur={() => dispatch({ type: 'touch-message' })}
+          error={!state.message.valid && state.message.touched}
+          helperText={
+            !state.message.valid && state.message.touched
+              ? state.message.message
+              : ''
+          }
         />
       </FieldEntry>
       <div className='self-end'>
