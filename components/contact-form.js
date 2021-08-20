@@ -63,20 +63,18 @@ function isValid(state) {
 }
 
 function updateEmailStateWithValue(value, state) {
-  state = {
+  return {
     ...state,
     email: { ...state.email, value: value, ...validateEmail(value) },
   };
 }
 
 function updateMessageStateWithValue(value, state) {
-  state = {
+  return {
     ...state,
     email: { ...state.email, value: value, ...validateEmail(value) },
   };
 }
-
-function setMessage(value, state) {}
 
 function reducer(state, action) {
   switch (action.type) {
