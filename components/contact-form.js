@@ -1,13 +1,11 @@
 import { useReducer } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
-import { BiError } from 'react-icons/bi';
 import { MdDone, MdErrorOutline } from 'react-icons/md';
 import { TextField } from '@material-ui/core';
 import axios from 'axios';
 
 const initialState = {
   email: {
-    value: '',
     touched: false,
     valid: false,
     message: '',
@@ -158,9 +156,6 @@ export default function ContactForm() {
     }
   };
 
-  console.log(state);
-  console.log(state.message);
-
   return (
     <form className='flex flex-col' onSubmit={handleSubmit}>
       <FieldEntry>
@@ -252,5 +247,5 @@ function SubmitButton({ disabled }) {
 }
 
 function FieldEntry({ children }) {
-  return <div className='mb-4 w-80'>{children}</div>;
+  return <div className='mb-4 w-full'>{children}</div>;
 }
