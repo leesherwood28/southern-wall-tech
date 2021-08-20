@@ -72,7 +72,7 @@ function updateEmailStateWithValue(value, state) {
 function updateMessageStateWithValue(value, state) {
   return {
     ...state,
-    email: { ...state.email, value: value, ...validateEmail(value) },
+    message: { ...state.message, value: value, ...validateMessage(value) },
   };
 }
 
@@ -110,7 +110,7 @@ function reducer(state, action) {
     case 'reset':
       return initialState;
     default:
-      throw new Error();
+      throw new Error('action not specified');
   }
 }
 
@@ -151,6 +151,9 @@ export default function ContactForm() {
     }
   };
 
+  console.log(state);
+  console.log(state.message);
+
   return (
     <form className='flex flex-col' onSubmit={handleSubmit}>
       <FieldEntry>
@@ -174,13 +177,13 @@ export default function ContactForm() {
           className='mb-2'
           multiline
           rows={4}
-          error={!state.email.valid && state.email.touched}
+          error={!state.message.valid && state.message.touched}
           variant='outlined'
           fullWidth
           onChange={(e) =>
             dispatch({ type: 'change-message', value: e.target.value })
           }
-          onTouched={() => dispatch({ type: 'touch-message' })}
+          onBlur={() => dispatch({ type: 'touch-message' })}
         />
       </FieldEntry>
       <div className='self-end'>
