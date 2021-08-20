@@ -7,14 +7,75 @@ const initialState = {
   email: {
     value: '',
     touched: false,
+    valid: false,
+    message: '',
   },
   message: {
     value: '',
     touched: false,
+    valid: false,
+    message: '',
   },
   submitted: false,
   submitting: false,
 };
+
+function isEmpty(value) {
+  return !value || /^\s*$/.test(value);
+}
+
+function validateEmail(email) {
+  if (isEmpty(email)) {
+    return {
+      valid: false,
+      message: 'Please enter a contact email address',
+    };
+  }
+
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+    return {
+      valid: false,
+      message: 'Invalid email address',
+    };
+  }
+  return {
+    valid: true,
+    message: '',
+  };
+}
+
+function validateMessage(message) {
+  if (isEmpty(message)) {
+    return {
+      valid: false,
+      message: 'Please enter a message',
+    };
+  }
+  return {
+    valid: true,
+    message: '',
+  };
+}
+
+function isValid(state) {
+  return validateEmail(state).valid && validateMessage(state).valid;
+}
+
+function updateEmailStateWithValue(value, state) {
+  state = {
+    ...state,
+    email: { ...state.email, value: value, ...validateEmail(value) },
+  };
+}
+
+function updateMessageStateWithValue(value, state) {
+  state = {
+    ...state,
+    email: { ...state.email, value: value, ...validateEmail(value) },
+  };
+}
+
+function setMessage(value, state) {}
 
 function reducer(state, action) {
   switch (action.type) {
@@ -23,9 +84,9 @@ function reducer(state, action) {
     case 'touch-message':
       return { ...state, message: { ...state.message, touched: true } };
     case 'change-email':
-      return { ...state, email: { ...state.email, value: action.value } };
+      return updateEmailStateWithValue(action.value, state);
     case 'change-message':
-      return { ...state, message: { ...state.message, value: action.value } };
+      return updateMessageStateWithValue(action.value, state);
     case 'submitting':
       return { ...state, submitting: action.submitting };
     case 'submitted':
