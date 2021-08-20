@@ -1,5 +1,6 @@
 import { useForm } from '@formspree/react';
 import TextField from '@material-ui/core/TextField';
+import { HiOutlineMail } from 'react-icons/hi';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xjvjppwl');
@@ -16,6 +17,8 @@ export default function ContactForm() {
           type='email'
           name='email'
           label='Email Address'
+          variant='filled'
+          fullWidth
         />
       </FieldEntry>
       <FieldEntry>
@@ -28,16 +31,41 @@ export default function ContactForm() {
           className='mb-2'
           multiline
           rows={4}
+          variant='filled'
+          fullWidth
         />
       </FieldEntry>
-
-      <button type='submit' disabled={state.submitting}>
-        Submit
-      </button>
+      <div className='self-end'>
+        <SubmitButton></SubmitButton>
+      </div>
     </form>
   );
 }
 
+function SubmitButton({ disabled }) {
+  return (
+    <button
+      className='
+            px-4
+            py-2
+            bg-pink-700
+            hover:bg-pink-600 
+            focus:bg-pink-600
+            active:bg-pink-700 
+            focus:outline-none
+            text-white 
+            rounded-lg 
+            flex
+            items-center'
+      type='submit'
+      disabled={disabled}
+    >
+      <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail>
+      Send
+    </button>
+  );
+}
+
 function FieldEntry({ children }) {
-  return <div className='mb-2'>{children}</div>;
+  return <div className='mb-4 w-80'>{children}</div>;
 }
