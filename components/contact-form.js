@@ -18,7 +18,6 @@ function getInitState() {
       valid: false,
       message: '',
     },
-    submitted: false,
     submitting: false,
     displayedMessage: null,
   };
@@ -136,8 +135,6 @@ function reducer(state, action) {
       return { ...state, displayedMessage: null };
     case 'submitting':
       return { ...state, submitting: action.submitting };
-    case 'submitted':
-      return { ...state, submitted: action.submitted };
     case 'error':
       return setStateMessageValue(action.error, true, state);
     case 'success': {
@@ -160,7 +157,7 @@ export default function ContactForm({ className }) {
     if (!isValid(state)) {
       return;
     }
-    dispatch({ type: 'submitting' });
+    dispatch({ type: 'submitting', submitting: true });
     axios({
       method: 'POST',
       url: 'https://formspree.io/xjvjppwl',
@@ -177,6 +174,7 @@ export default function ContactForm({ className }) {
         );
       })
       .catch((error) => {
+        dispatch({ type: 'submitting', submitting: false });
         handleServerResponse(
           false,
           'Something went wrong with processing your request, please try again later.'
