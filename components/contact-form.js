@@ -1,19 +1,44 @@
 import { useForm, ValidationError } from '@formspree/react';
 import { TextField } from 'formik-material-ui';
+import { useState } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 
-export default function ContactForm() {
-  const [state, handleSubmit] = useForm('xjvjppwl');
+const initialState = {
+  email: {
+    value: '',
+    touched: false,
+  },
+  message: {
+    value: '',
+    touched: false,
+  },
+  submitted: false,
+  submitting: false,
+};
 
-  const fieldValid = (field) => {
-    const error = state.errors.find((e) => e.field === field);
-    if (!error) {
-      return { valid: true };
-    }
-    return { valid: false, error: error.message };
-  };
-  const emailValid = fieldValid('email');
-  const messageValid = fieldValid('message');
+function reducer(state, action) {
+  switch (action.type) {
+    case 'touch-email':
+      return { ...state, email: { ...state.email, touched: true } };
+    case 'touch-message':
+      return { ...state, message: { ...state.message, touched: true } };
+    case 'change-email':
+      return { ...state, email: { ...state.email, value: action.value } };
+    case 'change-message':
+      return { ...state, message: { ...state.message, value: action.value } };
+    case 'submitting':
+      return { ...state, submitting: action.submitting };
+    case 'submitted':
+      return { ...state, submitted: action.submitted };
+    default:
+      throw new Error();
+  }
+}
+
+export default function ContactForm() {
+  const [submitState, handleSubmit] = useForm('xjvjppwl');
+
+  const [state, dispatch] = useState(reducer, initialState);
 
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
