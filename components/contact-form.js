@@ -1,5 +1,7 @@
 import { useReducer } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
+import { BiError } from 'react-icons/bi';
+import { GrStatusGood } from 'react-icons/gr';
 import { TextField } from '@material-ui/core';
 import axios from 'axios';
 
@@ -202,11 +204,16 @@ export default function ContactForm() {
       </FieldEntry>
       {state.displayedMessage ? (
         <div
-          className={`p-2 ${
-            state.displayedMessage.error ? 'text-red-500' : 'text-green-700'
+          className={`p-2 text-white rounded-md mb-4 flex items-center ${
+            state.displayedMessage.error ? 'bg-red-500' : 'bg-green-700'
           }`}
         >
-          Hello
+          {state.displayedMessage.error ? (
+            <BiError className='mr-2 mt-0.5'></BiError>
+          ) : (
+            <GrStatusGood className='mr-2 mt-0.5'></GrStatusGood>
+          )}
+          {state.displayedMessage.message}
         </div>
       ) : (
         ''
