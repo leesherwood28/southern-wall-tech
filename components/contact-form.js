@@ -199,6 +199,18 @@ export default function ContactForm() {
           }
         />
       </FieldEntry>
+      {state.displayedMessage ? (
+        <div
+          className={`p-2 ${
+            state.displayedMessage.error ? 'text-red-500' : 'text-green-700'
+          }`}
+        >
+          Hello
+        </div>
+      ) : (
+        ''
+      )}
+
       <div className='self-end'>
         <SubmitButton></SubmitButton>
       </div>
