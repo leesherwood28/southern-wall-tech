@@ -123,9 +123,9 @@ function validateState(state) {
 function reducer(state, action) {
   switch (action.type) {
     case 'touch-email':
-      return setStateEmailTouched(state);
+      return setStateEmailValid(setStateEmailTouched(state));
     case 'touch-message':
-      return setStateMessageTouched(state);
+      return setStateMessageValid(setStateMessageTouched(state));
     case 'validate':
       return validateState(state);
     case 'change-email':
