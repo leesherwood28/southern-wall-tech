@@ -1,4 +1,4 @@
-import { ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xjvjppwl');
