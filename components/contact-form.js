@@ -18,7 +18,10 @@ const initialState = {
   },
   submitted: false,
   submitting: false,
-  displayedMessage: null,
+  displayedMessage: {
+    message: 'hello',
+    error: true,
+  },
 };
 
 function isEmpty(value) {
@@ -76,6 +79,13 @@ function updateMessageStateWithValue(value, state) {
   };
 }
 
+function setStateDisplayedMessage(message, isError, state) {
+  return {
+    ...state,
+    displayedMessage: { message: message, error: isError },
+  };
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case 'touch-email':
@@ -97,18 +107,9 @@ function reducer(state, action) {
     case 'submitted':
       return { ...state, submitted: action.submitted };
     case 'error':
-      return {
-        ...state,
-        displayedMessage: { message: action.error, error: true },
-      };
+      return setStateDisplayedMessage(action.error, true, state);
     case 'success': {
-      return {
-        ...state,
-        displayedMessage: {
-          message: action.message,
-          error: false,
-        },
-      };
+      return setStateDisplayedMessage(action.message, false, state);
     }
     case 'reset':
       return initialState;
