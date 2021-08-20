@@ -138,6 +138,7 @@ export default function ContactForm({ className }) {
       },
     })
       .then((response) => {
+        dispatch({ type: 'reset' });
         handleServerResponse(
           true,
           'Thank you, your message has been submitted. I will get back to you as soon as possible.'
@@ -168,6 +169,7 @@ export default function ContactForm({ className }) {
           label='Email Address'
           variant='outlined'
           fullWidth
+          value={state.email.value}
           onChange={(e) =>
             dispatch({ type: 'change-email', value: e.target.value })
           }
@@ -189,6 +191,7 @@ export default function ContactForm({ className }) {
           rows={4}
           variant='outlined'
           fullWidth
+          value={state.message.value}
           onChange={(e) =>
             dispatch({ type: 'change-message', value: e.target.value })
           }
