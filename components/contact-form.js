@@ -17,7 +17,7 @@ export default function ContactForm() {
           type='email'
           name='email'
           label='Email Address'
-          variant='filled'
+          variant='outlined'
           fullWidth
         />
       </FieldEntry>
@@ -31,7 +31,7 @@ export default function ContactForm() {
           className='mb-2'
           multiline
           rows={4}
-          variant='filled'
+          variant='outlined'
           fullWidth
         />
       </FieldEntry>
