@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 import { TextField } from '@material-ui/core';
 
@@ -38,7 +38,7 @@ function reducer(state, action) {
 export default function ContactForm() {
   const [submitState, handleSubmit] = useForm('xjvjppwl');
 
-  const [state, dispatch] = useState(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
@@ -53,7 +53,7 @@ export default function ContactForm() {
           label='Email Address'
           variant='outlined'
           fullWidth
-          onChange={() => dispatch({ action: 'change-email' })}
+          onChange={() => dispatch({ type: 'change-email' })}
         />
       </FieldEntry>
       <FieldEntry>
