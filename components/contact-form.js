@@ -104,8 +104,7 @@ function reducer(state, action) {
       return {
         ...state,
         message: {
-          message:
-            'Thank you, your message has been submitted. I will get back to you as soon as possible.',
+          message: action.message,
           error: false,
         },
       };
@@ -143,7 +142,7 @@ export default function ContactForm() {
       .then((response) => {
         handleServerResponse(
           true,
-          'Thank you, your message has been submitted.'
+          'Thank you, your message has been submitted. I will get back to you as soon as possible.'
         );
       })
       .catch((error) => {
@@ -151,9 +150,11 @@ export default function ContactForm() {
       });
   };
 
-  const handleServerResponse = (ok, msg) => {
+  const handleServerResponse = (ok, message) => {
     if (ok) {
-      dispatch({ type: 'set-input' });
+      dispatch({ type: 'success', message: message });
+    } else {
+      dispatch({ type: 'error', error: message });
     }
   };
 
