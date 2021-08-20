@@ -113,14 +113,14 @@ function reducer(state, action) {
       return setStateDisplayedMessage(action.message, false, state);
     }
     case 'reset':
-      return initialState;
+      return { ...initialState };
     default:
       throw new Error('action not specified');
   }
 }
 
 export default function ContactForm({ className }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, { ...initialState });
 
   const handleSubmit = (e) => {
     e.preventDefault();
