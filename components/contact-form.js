@@ -59,13 +59,17 @@ function validateMessage(message) {
 }
 
 function isValid(state) {
-  return validateEmail(state).valid && validateMessage(state).valid;
+  return state.email.valid && state.message.valid;
 }
 
 function updateEmailStateWithValue(value, state) {
   return {
     ...state,
-    email: { ...state.email, value: value, ...validateEmail(value) },
+    email: {
+      ...state.email.value,
+      value: value.value,
+      ...validateEmail(value),
+    },
   };
 }
 
