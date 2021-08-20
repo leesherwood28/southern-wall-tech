@@ -31,7 +31,7 @@ function validateEmail(email) {
   if (isEmpty(email)) {
     return {
       valid: false,
-      message: 'Please enter a contact email address',
+      message: 'Please enter your email address',
     };
   }
 
