@@ -1,12 +1,23 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
 import Layout from '../components/layout';
+import { createTheme, ThemeProvider } from '@material-ui/core';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#be185d',
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }) {
   return (
-
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>);
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
