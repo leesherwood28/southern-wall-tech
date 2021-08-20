@@ -1,6 +1,5 @@
-import { useForm } from '@formspree/react';
-import TextField from '@material-ui/core/TextField';
-import { useCallback, useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { TextField } from 'formik-material-ui';
 import { HiOutlineMail } from 'react-icons/hi';
 
 export default function ContactForm() {
@@ -21,11 +20,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form className='flex flex-col'>
+    <form className='flex flex-col' onSubmit={handleSubmit}>
       <FieldEntry>
         <TextField
           id='email'
-          type='email'
           name='email'
           label='Email Address'
           variant='outlined'
