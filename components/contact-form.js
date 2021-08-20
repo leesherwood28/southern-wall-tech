@@ -279,7 +279,7 @@ function SubmitButton({ submitting }) {
       disabled={submitting}
     >
       <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail>
-      {submitting ? 'Submitting...' : 'Send'}
+      {submitting ? 'Sending...' : 'Send'}
     </button>
   );
 }
