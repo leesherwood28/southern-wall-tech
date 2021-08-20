@@ -90,12 +90,20 @@ function setStateDisplayedMessage(message, isError, state) {
   };
 }
 
+function markEmailTouched(state) {
+  return { ...state, email: { ...state.email, touched: true } };
+}
+
+function markMessageTouched(state) {
+  return { ...state, message: { ...state.message, touched: true } };
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case 'touch-email':
-      return { ...state, email: { ...state.email, touched: true } };
+      return markEmailTouched();
     case 'touch-message':
-      return { ...state, message: { ...state.message, touched: true } };
+      return markMessageTouched();
     case 'touch-all':
       return {
         ...state,
