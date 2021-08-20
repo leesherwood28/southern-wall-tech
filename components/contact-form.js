@@ -76,52 +76,70 @@ function updateEmailStateWithValue(value, state) {
   };
 }
 
-function updateMessageStateWithValue(value, state) {
+function setStateEmailValue(value, state) {
   return {
     ...state,
     message: { ...state.message, value: value, ...validateMessage(value) },
   };
 }
 
-function setStateDisplayedMessage(message, isError, state) {
+function setStateMessageValue(message, isError, state) {
   return {
     ...state,
     displayedMessage: { message: message, error: isError },
   };
 }
 
-function markEmailTouched(state) {
+function setStateEmailValid(state) {
+  return {
+    ...state,
+    email: { ...state.email, ...validateEmail(state.email.value) },
+  };
+}
+
+function setStateMessageValid(state) {
+  return {
+    ...state,
+    message: { ...state.message, ...validateMessage(state.message.value) },
+  };
+}
+
+function setStateEmailTouched(state) {
   return { ...state, email: { ...state.email, touched: true } };
 }
 
-function markMessageTouched(state) {
+function setStateMessageTouched(state) {
   return { ...state, message: { ...state.message, touched: true } };
+}
+
+function validateState(state) {
+  state = setStateEmailTouched(state);
+  state = setStateMessageTouched(state);
+  state = setStateEmailValid(state);
+  state = setStateMessageValid(state);
+  return state;
 }
 
 function reducer(state, action) {
   switch (action.type) {
     case 'touch-email':
-      return markEmailTouched();
+      return setStateEmailTouched();
     case 'touch-message':
-      return markMessageTouched();
-    case 'touch-all':
-      return {
-        ...state,
-        email: { ...state.email, touched: true },
-        message: { ...state.message, touched: true },
-      };
+      return setStateMessageTouched();
+    case 'validate':
+      return validateState(state);
     case 'change-email':
       return updateEmailStateWithValue(action.value, state);
     case 'change-message':
-      return updateMessageStateWithValue(action.value, state);
+      return setStateEmailValue(action.value, state);
     case 'submitting':
       return { ...state, submitting: action.submitting };
     case 'submitted':
       return { ...state, submitted: action.submitted };
     case 'error':
-      return setStateDisplayedMessage(action.error, true, state);
+      return setStateMessageValue(action.error, true, state);
     case 'success': {
-      return setStateDisplayedMessage(action.message, false, state);
+      return setStateMessageValue(action.message, false, state);
     }
     case 'reset':
       return getInitState();
@@ -135,7 +153,7 @@ export default function ContactForm({ className }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'touch-all' });
+    dispatch({ type: 'validate' });
     if (!isValid(state)) {
       return;
     }
