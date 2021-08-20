@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiError } from 'react-icons/bi';
-import { GrStatusGood } from 'react-icons/gr';
+import { MdDone, MdErrorOutline } from 'react-icons/md';
 import { TextField } from '@material-ui/core';
 import axios from 'axios';
 
@@ -21,8 +21,9 @@ const initialState = {
   submitted: false,
   submitting: false,
   displayedMessage: {
-    message: 'hello',
-    error: true,
+    message:
+      'Thank you, your message has been submitted. I will get back to you as soon as possible.',
+    error: false,
   },
 };
 
@@ -209,9 +210,9 @@ export default function ContactForm() {
           }`}
         >
           {state.displayedMessage.error ? (
-            <BiError className='mr-2 mt-0.5'></BiError>
+            <MdErrorOutline className='mr-2 mt-0.5'></MdErrorOutline>
           ) : (
-            <GrStatusGood className='mr-2 mt-0.5'></GrStatusGood>
+            <MdDone className='mr-2 mt-0.5'></MdDone>
           )}
           {state.displayedMessage.message}
         </div>
