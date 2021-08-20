@@ -7,12 +7,11 @@ export default function ContactForm() {
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
-
+  console.log(state);
   return (
-    <form className='flex flex-col'>
+    <form className='flex flex-col' onSubmit={handleSubmit}>
       <FieldEntry>
         <TextField
-          required
           id='email'
           type='email'
           name='email'
@@ -23,7 +22,6 @@ export default function ContactForm() {
       </FieldEntry>
       <FieldEntry>
         <TextField
-          required
           id='message'
           type='text'
           name='message'
