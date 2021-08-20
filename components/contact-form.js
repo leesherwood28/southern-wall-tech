@@ -1,4 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
+import TextField from '@material-ui/core/TextField';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xjvjppwl');
@@ -7,7 +8,14 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='flex flex-col'>
+      <TextField
+        required
+        id='email'
+        type='email'
+        name='email'
+        label='Email Address'
+      />
       <label htmlFor='email'>Email Address</label>
       <input id='email' type='email' name='email' />
       <ValidationError prefix='Email' field='email' errors={state.errors} />
