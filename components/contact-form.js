@@ -18,6 +18,7 @@ const initialState = {
   },
   submitted: false,
   submitting: false,
+  message: null,
 };
 
 function isEmpty(value) {
@@ -83,6 +84,12 @@ function reducer(state, action) {
       return { ...state, email: { ...state.email, touched: true } };
     case 'touch-message':
       return { ...state, message: { ...state.message, touched: true } };
+    case 'touch-all':
+      return {
+        ...state,
+        email: { ...state.email, touched: true },
+        message: { ...state.message, touched: true },
+      };
     case 'change-email':
       return updateEmailStateWithValue(action.value, state);
     case 'change-message':
@@ -91,6 +98,20 @@ function reducer(state, action) {
       return { ...state, submitting: action.submitting };
     case 'submitted':
       return { ...state, submitted: action.submitted };
+    case 'error':
+      return { ...state, message: { message: action.error, error: true } };
+    case 'success': {
+      return {
+        ...state,
+        message: {
+          message:
+            'Thank you, your message has been submitted. I will get back to you as soon as possible.',
+          error: false,
+        },
+      };
+    }
+    case 'reset':
+      return initialState;
     default:
       throw new Error();
   }
@@ -103,6 +124,38 @@ export default function ContactForm() {
     return <p>Thanks for joining!</p>;
   }
   console.log(state);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'touch-all' });
+    if (!isValid(state)) {
+      return;
+    }
+    dispatch({ type: 'submitting' });
+    axios({
+      method: 'POST',
+      url: 'https://formspree.io/xjvjppwl',
+      data: {
+        email: state.email,
+        message: state.message,
+      },
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          'Thank you, your message has been submitted.'
+        );
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error);
+      });
+  };
+
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      dispatch({ type: 'set-input' });
+    }
+  };
 
   return (
     <form className='flex flex-col' onSubmit={handleSubmit}>
