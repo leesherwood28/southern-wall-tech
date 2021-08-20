@@ -1,7 +1,7 @@
 import { useForm, ValidationError } from '@formspree/react';
-import { TextField } from 'formik-material-ui';
 import { useState } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
+import { TextField } from '@material-ui/core';
 
 const initialState = {
   email: {
@@ -53,7 +53,7 @@ export default function ContactForm() {
           label='Email Address'
           variant='outlined'
           fullWidth
-          error={!emailValid.valid}
+          onChange={() => dispatch({ action: 'change-email' })}
         />
       </FieldEntry>
       <FieldEntry>
@@ -67,7 +67,6 @@ export default function ContactForm() {
           rows={4}
           variant='outlined'
           fullWidth
-          error={!messageValid.valid}
         />
       </FieldEntry>
       <div className='self-end'>
