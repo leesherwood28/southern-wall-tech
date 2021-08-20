@@ -1,4 +1,4 @@
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 import TextField from '@material-ui/core/TextField';
 
 export default function ContactForm() {
@@ -8,33 +8,36 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col'>
-      <TextField
-        required
-        id='email'
-        type='email'
-        name='email'
-        label='Email Address'
-        className='mb-2'
-      />
-      <TextField
-        required
-        id='message'
-        type='text'
-        name='message'
-        label='Message'
-        className='mb-2'
-        multiline
-        maxRows={4}
-      />
-      <label htmlFor='email'>Email Address</label>
-      <input id='email' type='email' name='email' />
-      <ValidationError prefix='Email' field='email' errors={state.errors} />
-      <textarea id='message' name='message' />
-      <ValidationError prefix='Message' field='message' errors={state.errors} />
+    <form className='flex flex-col'>
+      <FieldEntry>
+        <TextField
+          required
+          id='email'
+          type='email'
+          name='email'
+          label='Email Address'
+        />
+      </FieldEntry>
+      <FieldEntry>
+        <TextField
+          required
+          id='message'
+          type='text'
+          name='message'
+          label='Message'
+          className='mb-2'
+          multiline
+          rows={4}
+        />
+      </FieldEntry>
+
       <button type='submit' disabled={state.submitting}>
         Submit
       </button>
     </form>
   );
+}
+
+function FieldEntry({ children }) {
+  return <div className='mb-2'>{children}</div>;
 }
