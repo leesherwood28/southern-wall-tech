@@ -133,8 +133,8 @@ export default function ContactForm({ className }) {
       method: 'POST',
       url: 'https://formspree.io/xjvjppwl',
       data: {
-        email: state.email,
-        message: state.message,
+        email: state.email.value,
+        message: state.message.value,
       },
     })
       .then((response) => {
@@ -144,7 +144,10 @@ export default function ContactForm({ className }) {
         );
       })
       .catch((error) => {
-        handleServerResponse(false, error.response.data.error);
+        handleServerResponse(
+          false,
+          'Something went wrong with processing your request, please try again later.'
+        );
       });
   };
 
