@@ -123,15 +123,17 @@ function validateState(state) {
 function reducer(state, action) {
   switch (action.type) {
     case 'touch-email':
-      return setStateEmailTouched();
+      return setStateEmailTouched(state);
     case 'touch-message':
-      return setStateMessageTouched();
+      return setStateMessageTouched(state);
     case 'validate':
       return validateState(state);
     case 'change-email':
       return updateEmailStateWithValue(action.value, state);
     case 'change-message':
       return setStateEmailValue(action.value, state);
+    case 'clear-message':
+      return { ...state, displayedMessage: null };
     case 'submitting':
       return { ...state, submitting: action.submitting };
     case 'submitted':
@@ -154,6 +156,7 @@ export default function ContactForm({ className }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: 'validate' });
+    dispatch({ type: 'clear-message' });
     if (!isValid(state)) {
       return;
     }
