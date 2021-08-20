@@ -1,15 +1,27 @@
 import { useForm } from '@formspree/react';
 import TextField from '@material-ui/core/TextField';
+import { useCallback, useEffect } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xjvjppwl');
+
+  const fieldValid = (field) => {
+    const error = state.errors.find((e) => e.field === field);
+    if (!error) {
+      return { valid: true };
+    }
+    return { valid: false, error: error.message };
+  };
+  const emailValid = fieldValid('email');
+  const messageValid = fieldValid('message');
+
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
-  console.log(state);
+
   return (
-    <form className='flex flex-col' onSubmit={handleSubmit}>
+    <form className='flex flex-col'>
       <FieldEntry>
         <TextField
           id='email'
@@ -18,6 +30,7 @@ export default function ContactForm() {
           label='Email Address'
           variant='outlined'
           fullWidth
+          error={!emailValid.valid}
         />
       </FieldEntry>
       <FieldEntry>
@@ -31,6 +44,7 @@ export default function ContactForm() {
           rows={4}
           variant='outlined'
           fullWidth
+          error={!messageValid.valid}
         />
       </FieldEntry>
       <div className='self-end'>
