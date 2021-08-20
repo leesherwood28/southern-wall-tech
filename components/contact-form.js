@@ -119,11 +119,6 @@ function reducer(state, action) {
 export default function ContactForm() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-  }
-  console.log(state);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: 'touch-all' });
@@ -181,11 +176,13 @@ export default function ContactForm() {
           className='mb-2'
           multiline
           rows={4}
+          error={!state.email.valid && state.email.touched}
           variant='outlined'
           fullWidth
           onChange={(e) =>
             dispatch({ type: 'change-message', value: e.target.value })
           }
+          onTouched={() => dispatch({ type: 'touch-message' })}
         />
       </FieldEntry>
       <div className='self-end'>
