@@ -15,6 +15,17 @@ export default function ContactForm() {
         type='email'
         name='email'
         label='Email Address'
+        className='mb-2'
+      />
+      <TextField
+        required
+        id='message'
+        type='text'
+        name='message'
+        label='Message'
+        className='mb-2'
+        multiline
+        maxRows={4}
       />
       <label htmlFor='email'>Email Address</label>
       <input id='email' type='email' name='email' />
