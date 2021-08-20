@@ -270,13 +270,15 @@ function SubmitButton({ disabled }) {
             hover:bg-pink-600 
             focus:bg-pink-600
             active:bg-pink-700 
+            disabled:opacity-50
+            disabled:pointer-events-none
             focus:outline-none
             text-white 
             rounded-lg 
             flex
             items-center'
       type='submit'
-      disabled={disabled}
+      disabled={true}
     >
       <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail>
       Send

@@ -23,6 +23,8 @@ module.exports = {
     extend: {
       backgroundColor: ['active'],
       backgroundOpacity: ['active'],
+      opacity: ['disabled'],
+      pointerEvents: ['disabled'],
     },
   },
   plugins: [],
