@@ -115,7 +115,7 @@ function reducer(state, action) {
   }
 }
 
-export default function ContactForm() {
+export default function ContactForm({ className }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = (e) => {
@@ -153,7 +153,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form className='flex flex-col' onSubmit={handleSubmit}>
+    <form className={`flex flex-col ${className}`} onSubmit={handleSubmit}>
       <FieldEntry>
         <TextField
           id='email'

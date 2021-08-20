@@ -25,7 +25,7 @@ export default function About() {
         </div>
 
         <Article title='Contact'>
-          <ContactForm></ContactForm>
+          <ContactForm className='w-full'></ContactForm>
         </Article>
       </DualPageLayout>
     </>
