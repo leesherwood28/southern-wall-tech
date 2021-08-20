@@ -66,8 +66,8 @@ function updateEmailStateWithValue(value, state) {
   return {
     ...state,
     email: {
-      ...state.email.value,
-      value: value.value,
+      ...state.email,
+      value: value,
       ...validateEmail(value),
     },
   };
