@@ -5,7 +5,7 @@ export default function Title() {
         Southern Wall Tech
       </h1>
       <h3 className='sm:text-xl italic text-center text-pink-700'>
-        Rendering and Plastering Solutions
+        Rendering and Plastering Specialists
       </h3>
     </div>
   );
