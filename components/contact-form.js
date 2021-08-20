@@ -18,11 +18,7 @@ const initialState = {
   },
   submitted: false,
   submitting: false,
-  displayedMessage: {
-    message:
-      'Thank you, your message has been submitted. I will get back to you as soon as possible.',
-    error: false,
-  },
+  displayedMessage: null,
 };
 
 function isEmpty(value) {
