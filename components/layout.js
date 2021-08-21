@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import Header from './header';
 import { animated, useSprings, useSpring } from '@react-spring/web';
 
@@ -17,8 +17,7 @@ export default function Layout({ children }) {
     });
   }, [children, springApi]);
 
-  useEffect(() => {
-    console.log(state);
+  useLayoutEffect(() => {
     springApi.start((i) => {
       const isSingle = state.length === 1;
       if (isSingle) {
