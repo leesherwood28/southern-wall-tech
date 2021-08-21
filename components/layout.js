@@ -5,30 +5,39 @@ import { animated, useSprings, useSpring } from '@react-spring/web';
 export default function Layout({ children }) {
   const [state, setState] = useState([]);
 
+  const [childSprings, springApi] = useSprings(state.length, (i) => ({
+    opacity: 0,
+  }));
+
   useEffect(() => {
     setState((s) => {
       const state = [...s];
       state.push({ child: children, key: Math.random() });
       return state.slice(Math.max(0, state.length - 2));
     });
-  }, [children]);
-  console.log('render');
+  }, [children, springApi]);
+
+  useEffect(() => {
+    console.log(state);
+    springApi.start((i) => ({
+      opacity: state.length === 2 && i === 0 ? 0 : 1,
+    }));
+  }, [state, springApi]);
+
   return (
     <div className='h-screen w-screen flex flex-col items-stretch'>
       <Header></Header>
       <main className='flex-grow relative'>
-        {state.map((child) => (
-          <ChildWrapper key={child.key}>{child.child}</ChildWrapper>
+        {childSprings.map((styles, i) => (
+          <animated.div
+            className='overflow-y-auto flex flex-col items-stretch absolute inset-0'
+            key={state[i].key}
+            style={styles}
+          >
+            {state[i].child}
+          </animated.div>
         ))}
       </main>
-    </div>
-  );
-}
-
-function ChildWrapper({ children }) {
-  return (
-    <div className='overflow-y-auto flex flex-col items-stretch absolute inset-0'>
-      {children}
     </div>
   );
 }
