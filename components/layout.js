@@ -19,9 +19,13 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     console.log(state);
-    springApi.start((i) => ({
-      opacity: state.length === 2 && i === 0 ? 0 : 1,
-    }));
+    springApi.start((i) => {
+      const a = {
+        opacity: state.length === 2 && i === 0 ? 0 : 1,
+      };
+      console.log(a);
+      return a;
+    });
   }, [state, springApi]);
 
   return (
