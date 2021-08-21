@@ -3,20 +3,23 @@ import Header from './header';
 import { animated, useSprings, useSpring } from '@react-spring/web';
 
 export default function Layout({ children }) {
-  const [state, setState] = useState({ prev: null, next: null });
-  useEffect(() => {
-    setState((s) => ({
-      prev: s.next,
-      next: children,
-    }));
-  }, [children]);
+  const [state, setState] = useState([]);
 
+  useEffect(() => {
+    setState((s) => {
+      const state = [...s];
+      state.push({ child: children, key: Math.random() });
+      return state.slice(Math.max(0, state.length - 2));
+    });
+  }, [children]);
+  console.log('render');
   return (
     <div className='h-screen w-screen flex flex-col items-stretch'>
       <Header></Header>
       <main className='flex-grow relative'>
-        <ChildWrapper>{state.prev}</ChildWrapper>
-        <ChildWrapper>{state.next}</ChildWrapper>
+        {state.map((child) => (
+          <ChildWrapper key={child.key}>{child.child}</ChildWrapper>
+        ))}
       </main>
     </div>
   );
