@@ -61,10 +61,10 @@ function MenuOverlay({ children }) {
         </div>
         <div className='flex flex-col items-stretch mt-4'>
           {children.map((child, i) => (
-            <>
+            <div key={i}>
               {child}
               <MenuItemSeperator></MenuItemSeperator>
-            </>
+            </div>
           ))}
         </div>
       </animated.div>
