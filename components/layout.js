@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   useEffect(() => {
     setState((s) => {
       const state = [...s];
-      state.push({ child: children, key: Math.random() });
+      state.push({ childEl: children, key: Math.random() });
       return state.slice(Math.max(0, state.length - 2));
     });
   }, [children, springApi]);
@@ -20,11 +20,16 @@ export default function Layout({ children }) {
   useEffect(() => {
     console.log(state);
     springApi.start((i) => {
-      const a = {
-        opacity: state.length === 2 && i === 0 ? 0 : 1,
+      const isSingle = state.length === 1;
+      if (isSingle) {
+        return { opacity: 1 };
+      }
+      const fadedOut = { opacity: 0 };
+      const displayed = { opacity: 1 };
+      return {
+        from: i === 0 ? displayed : fadedOut,
+        to: i === 0 ? fadedOut : displayed,
       };
-      console.log(a);
-      return a;
     });
   }, [state, springApi]);
 
@@ -32,13 +37,13 @@ export default function Layout({ children }) {
     <div className='h-screen w-screen flex flex-col items-stretch'>
       <Header></Header>
       <main className='flex-grow relative'>
-        {childSprings.map((styles, i) => (
+        {state.map((child, i) => (
           <animated.div
             className='overflow-y-auto flex flex-col items-stretch absolute inset-0'
-            key={state[i].key}
-            style={styles}
+            key={child.key}
+            style={childSprings[i]}
           >
-            {state[i].child}
+            {child.childEl}
           </animated.div>
         ))}
       </main>

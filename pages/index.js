@@ -3,6 +3,7 @@ import AdCarousel from '../components/ad-carousel';
 import Title from '../components/title';
 
 export default function Home() {
+  console.log('RENDER HOME');
   return (
     <>
       <Head>
