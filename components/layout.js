@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { animated, useSprings } from '@react-spring/web';
+import { useLayoutEffect, useState } from 'react';
 import Header from './header';
-import { animated, useSprings, useSpring } from '@react-spring/web';
 
 export default function Layout({ children }) {
   const [state, setState] = useState([]);
