@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     opacity: 0,
   }));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setState((s) => {
       const state = [...s];
       state.push({ childEl: children, key: Math.random() });
@@ -20,11 +20,11 @@ export default function Layout({ children }) {
   useLayoutEffect(() => {
     springApi.start((i) => {
       const isSingle = state.length === 1;
-      if (isSingle) {
-        return { opacity: 1 };
-      }
       const fadedOut = { opacity: 0 };
       const displayed = { opacity: 1 };
+      if (isSingle) {
+        return { from: fadedOut, to: displayed };
+      }
       return {
         from: i === 0 ? displayed : fadedOut,
         to: i === 0 ? fadedOut : displayed,
