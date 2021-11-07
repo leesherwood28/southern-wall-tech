@@ -11,7 +11,7 @@ export default function AdCarousel() {
     {
       image: '/contract.svg',
       alt: 'Image of contract',
-      text: 'Proffesional Conduct',
+      text: 'Professional Conduct',
     },
     {
       image: '/houses.svg',
