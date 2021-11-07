@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Article from '../components/article';
 import DualPageLayout from '../components/dual-page-layout';
+import MakeAnInquiryButton from '../components/make-an-inquiry-button';
 
 export default function About() {
   return (
@@ -24,21 +25,25 @@ export default function About() {
         </div>
 
         <Article title='About'>
-          Here at Southern Wall Tech ltd we specialise in undertaking all
-          aspects of plastering and rendering, meeting any requirements and
-          specifications our clients need. We work with all types of customers,
-          from small residential projects to large commercial building
-          developments.
-          <br />
-          <br />
-          With over 20 years of experience in the plastering industry, we have
-          high standards for our quality of work, customer service and customer
-          feedback.If you are looking for plasterers in Dorset or surrounding
-          areas, please get in touch for a free quote and on-site consultation.
-          <br />
-          <br />
-          <b>Our plastering services include:</b>
-          <ol>
+          <p className='mb-4'>
+            Here at Southern Wall Tech ltd we specialise in undertaking all
+            aspects of plastering and rendering, meeting any requirements and
+            specifications our clients need. We work with all types of
+            customers, from small residential projects to large commercial
+            building developments.
+          </p>
+          <p className='mb-4'>
+            With over 20 years of experience in the plastering industry, we have
+            high standards for our quality of work, customer service and
+            customer feedback.If you are looking for plasterers in Dorset or
+            surrounding areas, please get in touch for a free quote and on-site
+            consultation.
+          </p>
+
+          <p className='mb-4 font-bold text-left w-full'>
+            Our plastering services include:
+          </p>
+          <ol className='list-disc'>
             <li>Internal and External Plastering</li>
             <li>Domestic and Commercial Plastering</li>
             <li>Artex Removal</li>
@@ -47,10 +52,13 @@ export default function About() {
             <li>False Ceilings</li>
             <li>Plaster Repairs and Insurance Works</li>
           </ol>
-          We offer a wide selection of domestic and commericial plastering in
-          Dorset and the surrounding areas. Our team of plasterers are
-          experienced, fully trained and qualified to undertake any type and
-          size of project.
+          <p className='mb-4'>
+            We offer a wide selection of domestic and commericial plastering in
+            Dorset and the surrounding areas. Our team of plasterers are
+            experienced, fully trained and qualified to undertake any type and
+            size of project.
+          </p>
+          <MakeAnInquiryButton></MakeAnInquiryButton>
         </Article>
       </DualPageLayout>
     </>
