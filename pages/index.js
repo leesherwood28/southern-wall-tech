@@ -18,6 +18,10 @@ export default function Home() {
 
           <section>
             <Title></Title>
+            Welcome to southern wall tech limited. Plastering and rendering
+            contractors, covering Dorset and surrounding areas. We provide
+            services to both the commercial and private sector. We are fully
+            qualified and insured.
           </section>
         </div>
       </div>
