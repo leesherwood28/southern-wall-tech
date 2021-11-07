@@ -16,7 +16,7 @@ export default function About() {
       <DualPageLayout>
         <div className='relative h-full w-full'>
           <Image
-            src='/construction.svg'
+            src='/rendered-room-with-curved-ceiling.jpg'
             alt='Picture of house under construction'
             layout='fill'
             objectFit='contain'
@@ -29,6 +29,12 @@ export default function About() {
           specifications our clients need. We work with all types of customers,
           from small residential projects to large commercial building
           developments.
+          <br />
+          <br />
+          With over 20 years of experience in the plastering industry, we have
+          high standards for our quality of work, customer service and customer
+          feedback.If you are looking for plasterers in Dorset or surrounding
+          areas, please get in touch for a free quote and on-site consultation.
         </Article>
       </DualPageLayout>
     </>
