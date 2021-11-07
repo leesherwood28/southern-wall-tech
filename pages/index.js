@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import AdCarousel from '../components/ad-carousel';
-import CompanyOverview from '../components/company-overview';
 import Summary from '../components/summary';
 import Title from '../components/title';
 
@@ -24,10 +23,6 @@ export default function Home() {
 
           <section className='mt-4 px-4 w-full sm:w-3/5'>
             <Summary></Summary>
-          </section>
-
-          <section className='mt-4 px-4 w-full sm:w-3/5'>
-            <CompanyOverview></CompanyOverview>
           </section>
         </div>
       </div>
