@@ -47,6 +47,10 @@ export default function About() {
             <li>False Ceilings</li>
             <li>Plaster Repairs and Insurance Works</li>
           </ol>
+          We offer a wide selection of domestic and commericial plastering in
+          Dorset and the surrounding areas. Our team of plasterers are
+          experienced, fully trained and qualified to undertake any type and
+          size of project.
         </Article>
       </DualPageLayout>
     </>
