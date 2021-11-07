@@ -105,15 +105,21 @@ export default function About() {
             Rendering products our team use:
           </p>
           <ol className='list-disc mb-4'>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Monocouche Renders</li>
+            <li>Silicone Renders</li>
+            <li>Acrylic Renders</li>
+            <li>External Wall Insulation (EWI)</li>
+            <li>Sand and Cement Render</li>
+            <li>Pebbledash</li>
+            <li>Line Render</li>
+            <li>Through Colour Render</li>
           </ol>
+          <p className='mb-4'>
+            We are experts in our field and have worked on many rendering
+            projects. Our team use the highest quality products, which include,
+            K-rend, eco-rend, Parex, Jub and many more. We are approved
+            applicators and can work with the system of your choice.
+          </p>
         </Article>
       </DualPageLayout>
     </>
