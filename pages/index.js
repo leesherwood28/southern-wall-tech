@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import AdCarousel from '../components/ad-carousel';
+import Summary from '../components/summary';
 import Title from '../components/title';
 
 export default function Home() {
@@ -18,10 +19,10 @@ export default function Home() {
 
           <section>
             <Title></Title>
-            Welcome to southern wall tech limited. Plastering and rendering
-            contractors, covering Dorset and surrounding areas. We provide
-            services to both the commercial and private sector. We are fully
-            qualified and insured.
+          </section>
+
+          <section className='mt-4 p-4 w-full sm:w-1/2'>
+            <Summary></Summary>
           </section>
         </div>
       </div>
