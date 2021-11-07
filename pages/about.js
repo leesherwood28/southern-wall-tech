@@ -43,7 +43,7 @@ export default function About() {
           <p className='mb-4 font-bold text-left w-full'>
             Our plastering services include:
           </p>
-          <ol className='list-disc'>
+          <ol className='list-disc mb-4'>
             <li>Internal and External Plastering</li>
             <li>Domestic and Commercial Plastering</li>
             <li>Artex Removal</li>
