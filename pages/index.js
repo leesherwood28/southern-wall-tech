@@ -26,7 +26,7 @@ export default function Home() {
             <Summary></Summary>
           </section>
 
-          <section className='mt-4 px-4 w-full sm:w-3/2'>
+          <section className='mt-4 px-4 w-full sm:w-3/5'>
             <CompanyOverview></CompanyOverview>
           </section>
         </div>
