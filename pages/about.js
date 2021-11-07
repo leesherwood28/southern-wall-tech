@@ -94,6 +94,26 @@ export default function About() {
             <li>Insurance Works</li>
             <li>Contracting</li>
           </ol>
+          <p className='mb-4'>
+            We offer a wide selection of domestic and commercial rendering
+            services. Rendering can be applied to walls of a building to add an
+            extra layer of protection to your building. Its ideal for adding an
+            extra layer of insulation to improve energy efficiency and revamping
+            the aesthetics of your building.
+          </p>
+          <p className='mb-4 font-bold w-full text-left'>
+            Rendering products our team use:
+          </p>
+          <ol className='list-disc mb-4'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
         </Article>
       </DualPageLayout>
     </>
