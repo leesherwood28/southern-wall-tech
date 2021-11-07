@@ -58,8 +58,8 @@ export default function About() {
             experienced, fully trained and qualified to undertake any type and
             size of project.
           </p>
-          <MakeAnInquiryButton></MakeAnInquiryButton>
-          <p className='mt-4 font-bold w-full text-left mb-4'>
+
+          <p className='font-bold w-full text-left mb-4'>
             Plastering products our team use:
           </p>
           <ol className='list-disc mb-4'>
@@ -80,6 +80,20 @@ export default function About() {
             cant find your required product, feel free to contact us to discuss
             your specifications.
           </p>
+          <MakeAnInquiryButton></MakeAnInquiryButton>
+          <p className='font-bold w-full text-left mt-4 mb-4'>
+            Our rendering services include:
+          </p>
+          <ol className='list-disc mb-4'>
+            <li>External Rendering</li>
+            <li>Domestic Rendering</li>
+            <li>Commercial Rendering</li>
+            <li>Render Removal</li>
+            <li>New Builds and Refurbishments</li>
+            <li>Rendering Repairs</li>
+            <li>Insurance Works</li>
+            <li>Contracting</li>
+          </ol>
         </Article>
       </DualPageLayout>
     </>
