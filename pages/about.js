@@ -35,6 +35,18 @@ export default function About() {
           high standards for our quality of work, customer service and customer
           feedback.If you are looking for plasterers in Dorset or surrounding
           areas, please get in touch for a free quote and on-site consultation.
+          <br />
+          <br />
+          <b>Our plastering services include:</b>
+          <ol>
+            <li>Internal and External Plastering</li>
+            <li>Domestic and Commercial Plastering</li>
+            <li>Artex Removal</li>
+            <li>Stud walls and Partion walls</li>
+            <li>Float and Set</li>
+            <li>False Ceilings</li>
+            <li>Plaster Repairs and Insurance Works</li>
+          </ol>
         </Article>
       </DualPageLayout>
     </>
