@@ -59,6 +59,21 @@ export default function About() {
             size of project.
           </p>
           <MakeAnInquiryButton></MakeAnInquiryButton>
+          <p className='mt-4 font-bold w-full text-left mb-4'>
+            Plastering products our team use:
+          </p>
+          <ol className='list-disc mb-4'>
+            <li>Gypsum Plasters</li>
+            <li>Lime Plaster </li>
+            <li>Stucco Plaster</li>
+            <li>Bonding</li>
+            <li>Hardwall</li>
+            <li>Multi-Finish</li>
+            <li>Coloured Plaster</li>
+            <li>One Coat Plaster</li>
+            <li>Base and Top Coat Plasters</li>
+            <li>Dry Coat Plaster</li>
+          </ol>
         </Article>
       </DualPageLayout>
     </>
