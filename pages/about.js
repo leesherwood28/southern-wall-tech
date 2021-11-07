@@ -74,6 +74,12 @@ export default function About() {
             <li>Base and Top Coat Plasters</li>
             <li>Dry Coat Plaster</li>
           </ol>
+          <p className='mb-4'>
+            We have experience with all different types of plastering materials
+            and can tailor our services around the customers preferences. If you
+            cant find your required product, feel free to contact us to discuss
+            your specifications.
+          </p>
         </Article>
       </DualPageLayout>
     </>
