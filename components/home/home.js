@@ -1,5 +1,5 @@
-import AdCarousel from '../ad-carousel';
-import Summary from '../summary';
+import AdCarousel from './ad-carousel';
+import Summary from './summary';
 import Title from './title';
 
 export function Home() {
