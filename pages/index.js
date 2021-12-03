@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { Home } from '../components/home/home';
+import { AboutPage } from '../components/about/about-page';
 
 export default function Index() {
   return (
@@ -39,7 +40,7 @@ export default function Index() {
             color: 'white',
           }}
         >
-          Some more stuff
+          <AboutPage></AboutPage>
         </ParallaxLayer>
       </Parallax>
     </>
