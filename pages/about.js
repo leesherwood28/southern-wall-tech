@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Article from '../components/article';
 import DualPageLayout from '../components/dual-page-layout';
-import MakeAnInquiryButton from '../components/make-an-inquiry-button';
+import MakeAnInquiryButton from '../components/shared/make-an-inquiry-button';
 
 export default function About() {
   return (
