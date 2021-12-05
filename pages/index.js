@@ -5,6 +5,7 @@ import { AboutPage } from '../components/about/about-page';
 import {
   PlasteringInfo,
   PlasteringProducts,
+  PlasteringServices,
 } from '../components/plastering/plastering-info';
 
 export default function Index() {
@@ -58,6 +59,18 @@ function Pages() {
         }}
       >
         <PlasteringProducts></PlasteringProducts>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={2.5}
+        speed={0}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <PlasteringServices />
       </ParallaxLayer>
     </Parallax>
   );

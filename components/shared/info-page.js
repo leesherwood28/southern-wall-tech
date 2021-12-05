@@ -1,16 +1,19 @@
 import { ProductsTitle, ServicesTitle } from './titles';
 import { FaTools, FaToolbox } from 'react-icons/fa';
-export function InfoPage({ text, items, type }) {
+export function InfoPage({ text, items, type, intro }) {
   return (
     <div className='flex flex-col items-center'>
-      <div className='mb-4'>
+      <div className='mb-8'>
         <Title type={type}></Title>
       </div>
-      <div className='mb-4'>
-        <Text text={text} />
+      <div className='mb-8 self-start'>
+        <Intro intro={intro} />
       </div>
       <div className='mb-8'>
         <List items={items} />
+      </div>
+      <div className='mb-8'>
+        <Text text={text} />
       </div>
     </div>
   );
@@ -28,7 +31,11 @@ function Title({ type }) {
 }
 
 function Text({ text }) {
-  return <div className='max-w-xl bg-gray-100 p-2 rounded-lg'>{text}</div>;
+  return <div className='max-w-xl bg-gray-100 p-8 rounded-xl'>{text}</div>;
+}
+
+function Intro({ intro }) {
+  return <div className='text-pink-700 italic text-xl'>{intro}:</div>;
 }
 
 function List({ items }) {
