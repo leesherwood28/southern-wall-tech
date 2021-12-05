@@ -2,7 +2,7 @@ import AdCarousel from './ad-carousel';
 import Summary from './summary';
 import Title from './title';
 
-export function Home() {
+export function HomePage() {
   return (
     <>
       <div className='flex flex-col items-center py-0 sm:py-10'>
