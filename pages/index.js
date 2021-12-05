@@ -59,43 +59,19 @@ function Pages() {
 function PlasteringPages() {
   return (
     <>
-      <ParallaxLayer
-        offset={2}
-        speed={0}
-        style={{
-          display: 'flex',
-          justifyContent: 'start',
-          alignItems: 'center',
-        }}
-      >
+      <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }}>
         <DualPageLayout position='start'>
           <PlasteringGallery />
         </DualPageLayout>
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={2}
-        speed={0}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <ParallaxLayer offset={2} speed={0}>
         <DualPageLayout position='end'>
           <PlasteringProducts></PlasteringProducts>
         </DualPageLayout>
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={3}
-        speed={0}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <ParallaxLayer offset={3} speed={0}>
         <DualPageLayout position='end'>
           <PlasteringServices />
         </DualPageLayout>
