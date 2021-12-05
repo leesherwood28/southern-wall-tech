@@ -59,7 +59,7 @@ function Pages() {
 function PlasteringPages() {
   return (
     <>
-      <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }}>
+      <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }} className='z-20'>
         <DualPageLayout position='start'>
           <PlasteringGallery />
         </DualPageLayout>
