@@ -6,7 +6,12 @@ export function InfoPage({ text, items, type }) {
       <div className='mb-4'>
         <Title type={type}></Title>
       </div>
-      <Text text={text} />
+      <div className='mb-4'>
+        <Text text={text} />
+      </div>
+      <div className='mb-8'>
+        <List items={items} />
+      </div>
     </div>
   );
 }
@@ -23,9 +28,23 @@ function Title({ type }) {
 }
 
 function Text({ text }) {
-  return <div className='max-w-lg'>{text}</div>;
+  return <div className='max-w-xl bg-gray-100 p-2 rounded-lg'>{text}</div>;
+}
+
+function List({ items }) {
+  return (
+    <ol className='flex flex-wrap max-w-xl'>
+      {items.map((item) => (
+        <ItemChip key={item} item={item} />
+      ))}
+    </ol>
+  );
 }
 
 function ItemChip({ item }) {
-  return <div className='p-3'>{item}</div>;
+  return (
+    <li className='p-2 m-1 bg-gray-600 text-white rounded-full text-center'>
+      {item}
+    </li>
+  );
 }

@@ -21,7 +21,8 @@ export function PlasteringProducts({}) {
   const text = `We have experience with all different types of plastering materials
         and can tailor our services around the customers preferences. If you
         cant find your required product, feel free to contact us to discuss
-        your specifications.`;
+        your specifications.
+        Plastering products our team use:`;
 
   return <InfoPage type='products' items={items} text={text}></InfoPage>;
 }
