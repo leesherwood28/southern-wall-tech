@@ -7,6 +7,8 @@ import {
   PlasteringProducts,
   PlasteringServices,
 } from '../components/plastering/plastering-info';
+import PlasteringGallery from '../components/plastering/plastering-gallery';
+import { DualPageLayout } from '../components/shared/dual-page-layout';
 
 export default function Index() {
   return (
@@ -54,15 +56,17 @@ function Pages() {
         speed={0}
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'start',
           alignItems: 'center',
         }}
       >
-        <PlasteringProducts></PlasteringProducts>
+        <DualPageLayout position='start'>
+          <PlasteringGallery />
+        </DualPageLayout>
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={2.5}
+        offset={2}
         speed={0}
         style={{
           display: 'flex',
@@ -70,7 +74,23 @@ function Pages() {
           alignItems: 'center',
         }}
       >
-        <PlasteringServices />
+        <DualPageLayout position='end'>
+          <PlasteringProducts></PlasteringProducts>
+        </DualPageLayout>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={3}
+        speed={0}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <DualPageLayout position='end'>
+          <PlasteringServices />
+        </DualPageLayout>
       </ParallaxLayer>
     </Parallax>
   );

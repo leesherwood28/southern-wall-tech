@@ -2,7 +2,7 @@ import { ProductsTitle, ServicesTitle } from './titles';
 import { FaTools, FaToolbox } from 'react-icons/fa';
 export function InfoPage({ text, items, type, intro }) {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center max-w-xl'>
       <div className='mb-8'>
         <Title type={type}></Title>
       </div>
@@ -31,7 +31,7 @@ function Title({ type }) {
 }
 
 function Text({ text }) {
-  return <div className='max-w-xl bg-gray-100 p-8 rounded-xl'>{text}</div>;
+  return <div className='bg-gray-100 p-8 rounded-xl'>{text}</div>;
 }
 
 function Intro({ intro }) {
@@ -40,7 +40,7 @@ function Intro({ intro }) {
 
 function List({ items }) {
   return (
-    <ol className='flex flex-wrap max-w-xl'>
+    <ol className='flex flex-wrap'>
       {items.map((item) => (
         <ItemChip key={item} item={item} />
       ))}
