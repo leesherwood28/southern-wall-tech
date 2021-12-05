@@ -51,6 +51,14 @@ function Pages() {
         <AboutPage></AboutPage>
       </ParallaxLayer>
 
+      <PlasteringPages />
+    </Parallax>
+  );
+}
+
+function PlasteringPages() {
+  return (
+    <>
       <ParallaxLayer
         offset={2}
         speed={0}
@@ -92,6 +100,6 @@ function Pages() {
           <PlasteringServices />
         </DualPageLayout>
       </ParallaxLayer>
-    </Parallax>
+    </>
   );
 }
