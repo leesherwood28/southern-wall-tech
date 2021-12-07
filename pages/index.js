@@ -9,6 +9,7 @@ import {
 } from '../components/plastering/plastering-info';
 import PlasteringGallery from '../components/plastering/plastering-gallery';
 import { DualPageLayout } from '../components/shared/dual-page-layout';
+import { Section } from '../components/shared/section';
 
 export default function Index() {
   return (
@@ -49,6 +50,15 @@ function Pages() {
         }}
       >
         <AboutPage></AboutPage>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={1.5}
+        speed={1}
+        factor={2}
+        sticky={{ start: 2, end: 3 }}
+      >
+        <Section text='Plastering' className='bg-gray-100 h-full w-full' />
       </ParallaxLayer>
 
       <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }} className='z-20'>
