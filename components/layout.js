@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         {transitions((props, item) => {
           return (
             <animated.div
-              className='overflow-y-auto flex flex-col items-stretch absolute inset-0'
+              className='flex flex-col items-stretch absolute inset-0'
               style={props}
             >
               {item}

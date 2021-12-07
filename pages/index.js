@@ -51,31 +51,23 @@ function Pages() {
         <AboutPage></AboutPage>
       </ParallaxLayer>
 
-      <PlasteringPages />
-    </Parallax>
-  );
-}
-
-function PlasteringPages() {
-  return (
-    <>
       <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }} className='z-20'>
         <DualPageLayout position='start'>
-          <PlasteringGallery />
+          <PlasteringGallery></PlasteringGallery>
         </DualPageLayout>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={2} speed={0}>
+      <ParallaxLayer offset={2} speed={0.5} factor={0.8}>
         <DualPageLayout position='end'>
           <PlasteringProducts></PlasteringProducts>
         </DualPageLayout>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={3} speed={0}>
+      <ParallaxLayer offset={2.8} speed={0.5} factor={0.8}>
         <DualPageLayout position='end'>
           <PlasteringServices />
         </DualPageLayout>
       </ParallaxLayer>
-    </>
+    </Parallax>
   );
 }
