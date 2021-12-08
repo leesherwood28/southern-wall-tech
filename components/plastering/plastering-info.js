@@ -1,7 +1,16 @@
 import { InfoPage } from '../shared/info-page';
+import { SectionTitle } from '../shared/section-title';
 
 export function PlasteringInfo({}) {
-  return <InfoPage></InfoPage>;
+  return (
+    <div>
+      <div className='flex flex-col'>
+        <SectionTitle title='Plastering' />
+        <PlasteringProducts></PlasteringProducts>
+        <PlasteringServices></PlasteringServices>
+      </div>
+    </div>
+  );
 }
 
 export function PlasteringProducts({}) {

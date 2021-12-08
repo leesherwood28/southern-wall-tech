@@ -28,7 +28,6 @@ function Pages() {
     <Parallax pages={4} style={{ top: '0', left: '0' }}>
       <ParallaxLayer
         offset={0}
-        speed={0}
         factor={1}
         style={{
           display: 'flex',
@@ -42,40 +41,34 @@ function Pages() {
       <ParallaxLayer
         offset={1}
         factor={1}
-        speed={0}
         style={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
+        className='z-20'
       >
         <AboutPage></AboutPage>
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={1.5}
-        speed={1}
-        factor={2}
-        sticky={{ start: 2, end: 3 }}
-      >
-        <Section text='Plastering' className='bg-gray-100 h-full w-full' />
+      <ParallaxLayer offset={1} speed={0} factor={3}>
+        <div className='bg-gray-100 h-full w-full'></div>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={2} sticky={{ start: 2, end: 3 }} className='z-20'>
+      <ParallaxLayer
+        offset={2}
+        speed={0}
+        sticky={{ start: 2, end: 3 }}
+        className='z-20'
+      >
         <DualPageLayout position='start'>
           <PlasteringGallery></PlasteringGallery>
         </DualPageLayout>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={2} speed={0.5} factor={0.8}>
+      <ParallaxLayer offset={2.2} speed={0}>
         <DualPageLayout position='end'>
-          <PlasteringProducts></PlasteringProducts>
-        </DualPageLayout>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={2.8} speed={0.5} factor={0.8}>
-        <DualPageLayout position='end'>
-          <PlasteringServices />
+          <PlasteringInfo />
         </DualPageLayout>
       </ParallaxLayer>
     </Parallax>
