@@ -1,11 +1,11 @@
 import { HiOutlineMail } from 'react-icons/hi';
-import Link from 'next/link';
+import { ScrollButton } from './shared/scroll-button';
 
 export default function ContactButton() {
   return (
-    <Link href='/contact'>
-      <a
-        className='
+    <ScrollButton
+      page='contact'
+      className='
                         bg-pink-700 
                         text-white 
                         px-4 
@@ -14,9 +14,8 @@ export default function ContactButton() {
                         focus:outline-none 
                         active:bg-pink-700 
                         flex items-center'
-      >
-        <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail> Contact
-      </a>
-    </Link>
+    >
+      <HiOutlineMail className='mr-2 mt-0.5'></HiOutlineMail> Contact
+    </ScrollButton>
   );
 }
