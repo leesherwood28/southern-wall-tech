@@ -1,16 +1,11 @@
 import Head from 'next/head';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import { HomePage } from '../components/home/homePage';
 import { AboutPage } from '../components/about/about-page';
-import {
-  PlasteringInfo,
-  PlasteringProducts,
-  PlasteringServices,
-} from '../components/plastering/plastering-info';
-import PlasteringGallery from '../components/plastering/plastering-gallery';
-import { DualPageLayout } from '../components/shared/dual-page-layout';
-import { Section } from '../components/shared/section';
+import { HomePage } from '../components/home/homePage';
 import { Page } from '../components/page/page';
+import PlasteringGallery from '../components/plastering/plastering-gallery';
+import { PlasteringInfo } from '../components/plastering/plastering-info';
+import RenderingGallery from '../components/rendering/rendering-gallery';
+import { RenderingInfo } from '../components/rendering/rendering-info';
 
 export default function Index() {
   return (
@@ -26,6 +21,11 @@ export default function Index() {
           title='Plastering'
           gallery={<PlasteringGallery />}
           content={<PlasteringInfo />}
+        ></Page>
+        <Page
+          title='Rendering'
+          gallery={<RenderingGallery />}
+          content={<RenderingInfo />}
         ></Page>
       </div>
     </>
