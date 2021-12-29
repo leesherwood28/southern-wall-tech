@@ -1,7 +1,7 @@
 export function GalleryPage({ title, gallery, content, id }) {
   return (
     <div>
-      <div className='flex w-screen mb-40' id={id}>
+      <div className='flex flex-wrap md:flex-nowrap w-screen mb-40' id={id}>
         <Gallery gallery={gallery} title={title} />
         <Content content={content} />
       </div>
@@ -18,7 +18,7 @@ function PageTitle({ title }) {
 
 function Gallery({ gallery, title }) {
   return (
-    <div className='flex-1 py-10 px-20 sticky top-0 self-start'>
+    <div className='flex-1 py-10 px-20 md:sticky top-0 self-start'>
       <PageTitle title={title} />
       {gallery}
     </div>
