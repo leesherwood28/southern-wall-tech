@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { AboutPage } from '../components/about/about-page';
 import { HomePage } from '../components/home/homePage';
-import { Page } from '../components/page/page';
+import { GalleryPage } from '../components/gallery-page/gallery-page';
 import PlasteringGallery from '../components/plastering/plastering-gallery';
 import { PlasteringInfo } from '../components/plastering/plastering-info';
 import RenderingGallery from '../components/rendering/rendering-gallery';
@@ -17,16 +17,16 @@ export default function Index() {
       <div className='overflow-auto'>
         <HomePage />
         <AboutPage />
-        <Page
+        <GalleryPage
           title='Plastering'
           gallery={<PlasteringGallery />}
           content={<PlasteringInfo />}
-        ></Page>
-        <Page
+        ></GalleryPage>
+        <GalleryPage
           title='Rendering'
           gallery={<RenderingGallery />}
           content={<RenderingInfo />}
-        ></Page>
+        ></GalleryPage>
       </div>
     </>
   );
