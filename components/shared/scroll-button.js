@@ -5,7 +5,9 @@ export function ScrollButton({ page, children, className, onClick }) {
       className={className}
       onClick={() => {
         scrollToPage();
-        onClick();
+        if (onClick) {
+          onClick();
+        }
       }}
     >
       {children}
