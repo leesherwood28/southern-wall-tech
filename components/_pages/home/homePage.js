@@ -7,7 +7,7 @@ export function HomePage() {
     <>
       <div
         id='home'
-        className='flex flex-col items-center py-0 sm:py-10 h-screen'
+        className='flex flex-col items-center py-0 sm:py-10 w-screen'
       >
         <section className='w-full'>
           <AdCarousel></AdCarousel>

@@ -1,7 +1,7 @@
 export function GalleryPage({ title, gallery, content, id }) {
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-colss-2 w-screen mb-40' id={id}>
+      <div className='grid grid-cols-1 md:grid-colss-2 w-screen' id={id}>
         <Gallery gallery={gallery} title={title} />
         <Content content={content} />
       </div>
