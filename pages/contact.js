@@ -4,7 +4,7 @@ import Article from '../components/article';
 import ContactForm from '../components/contact-form';
 import DualPageLayout from '../components/dual-page-layout';
 
-export default function About() {
+export default function Contact() {
   return (
     <>
       <Head>
