@@ -1,7 +1,7 @@
 export function GalleryPage({ title, gallery, content, id }) {
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-colss-2 w-screen' id={id}>
+      <div className='grid grid-cols-1 lg:grid-cols-2 w-screen' id={id}>
         <Gallery gallery={gallery} title={title} />
         <Content content={content} />
       </div>
@@ -18,7 +18,7 @@ function PageTitle({ title }) {
 
 function Gallery({ gallery, title }) {
   return (
-    <div className='py-10 px-20 md:sticky top-0 self-start'>
+    <div className='py-10 px-20 lg:sticky top-0 self-start'>
       <PageTitle title={title} />
       {gallery}
     </div>
