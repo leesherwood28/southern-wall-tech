@@ -1,6 +1,8 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       animation: {
@@ -17,14 +19,6 @@ module.exports = {
         120: '30rem',
         140: '35rem',
       },
-    },
-  },
-  variants: {
-    extend: {
-      backgroundColor: ['active'],
-      backgroundOpacity: ['active'],
-      opacity: ['disabled'],
-      pointerEvents: ['disabled'],
     },
   },
   plugins: [],
