@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import { AboutPage } from '../components/about/about-page';
 import { HomePage } from '../components/home/homePage';
-import { GalleryPage } from '../components/gallery-page/gallery-page';
-import RenderingGallery from '../components/rendering/rendering-gallery';
-import { RenderingInfo } from '../components/rendering/rendering-info';
 import { PlasteringPage } from '../components/plastering/plastering-page';
 import { RenderingPage } from '../components/rendering/rendering-page';
 
