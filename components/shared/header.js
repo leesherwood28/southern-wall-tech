@@ -1,6 +1,7 @@
 import ContactButton from '../contact-button';
 import Link from 'next/link';
 import Menu from '../menu';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const links = [
