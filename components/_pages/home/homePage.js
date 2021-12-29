@@ -5,7 +5,10 @@ import Title from './title';
 export function HomePage() {
   return (
     <>
-      <div className='flex flex-col items-center py-0 sm:py-10 h-screen'>
+      <div
+        id='home'
+        className='flex flex-col items-center py-0 sm:py-10 h-screen'
+      >
         <section className='w-full'>
           <AdCarousel></AdCarousel>
         </section>
