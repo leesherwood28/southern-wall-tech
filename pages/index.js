@@ -5,6 +5,7 @@ import { GalleryPage } from '../components/gallery-page/gallery-page';
 import RenderingGallery from '../components/rendering/rendering-gallery';
 import { RenderingInfo } from '../components/rendering/rendering-info';
 import { PlasteringPage } from '../components/plastering/plastering-page';
+import { RenderingPage } from '../components/rendering/rendering-page';
 
 export default function Index() {
   return (
@@ -17,11 +18,7 @@ export default function Index() {
         <HomePage />
         <AboutPage />
         <PlasteringPage />
-        <GalleryPage
-          title='Rendering'
-          gallery={<RenderingGallery />}
-          content={<RenderingInfo />}
-        ></GalleryPage>
+        <RenderingPage />
       </div>
     </>
   );
