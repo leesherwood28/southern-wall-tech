@@ -14,7 +14,6 @@ export default function Index() {
       </Head>
       <div className='overflow-y-auto overflow-x-hidden'>
         <HomePage />
-        <AboutPage />
         <PlasteringPage />
         <RenderingPage />
         <ContactPage />
