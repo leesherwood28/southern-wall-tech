@@ -1,5 +1,3 @@
-import { HiOutlineMail } from 'react-icons/hi';
-import Link from 'next/link';
 import MakeAnInquiryButton from '../../shared/make-an-inquiry-button';
 
 export default function Summary() {
