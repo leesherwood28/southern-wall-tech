@@ -5,10 +5,9 @@ export function GalleryPage({ title, gallery, content }) {
     <div>
       <PageTitle title={title} />
       <div className='flex'>
-        <div className='flex-1'>{gallery}</div>
-        <div className='flex-1'>{content}</div>
+        <Gallery gallery={gallery} />
+        <Content content={content} />
       </div>
-      <div>{content}</div>
     </div>
   );
 }
@@ -21,5 +20,11 @@ function PageTitle({ title }) {
 }
 
 function Gallery({ gallery }) {
-  return <div className=''></div>;
+  return <div className='flex-1 p-20'>{gallery}</div>;
+}
+
+function Content({ content }) {
+  return (
+    <div className='flex-1 p-20 flex flex-col items-center'>{content}</div>
+  );
 }
