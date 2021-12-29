@@ -1,4 +1,3 @@
-import { animated, useTransition } from '@react-spring/web';
 import Header from './header';
 
 export default function Layout({ children }) {
