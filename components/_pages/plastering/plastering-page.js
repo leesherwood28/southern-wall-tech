@@ -6,6 +6,7 @@ export function PlasteringPage({}) {
   return (
     <GalleryPage
       title='Plastering'
+      id='plastering'
       gallery={<PlasteringGallery />}
       content={
         <div className='flex flex-col items-center mt-40'>

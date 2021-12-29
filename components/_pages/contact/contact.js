@@ -5,7 +5,7 @@ import ContactForm from './contact-form';
 
 export default function ContactPage() {
   return (
-    <div className='min-h-screen flex items-center'>
+    <div id='contact' className='min-h-screen flex items-center'>
       <DualPageLayout>
         <div className='relative h-full w-full'>
           <Image

@@ -7,11 +7,6 @@ const MenuContext = createContext(false);
 
 export default function Menu({ children }) {
   const [isOpen, setOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    router.events.on('routeChangeStart', () => setOpen(false));
-  }, [router]);
 
   return (
     <MenuContext.Provider value={[isOpen, setOpen]}>

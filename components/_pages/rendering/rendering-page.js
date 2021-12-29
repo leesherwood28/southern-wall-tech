@@ -6,6 +6,7 @@ export function RenderingPage({}) {
   return (
     <GalleryPage
       title='Rendering'
+      id='rendering'
       gallery={<RenderingGallery />}
       content={
         <div className='flex flex-col items-center mt-40'>

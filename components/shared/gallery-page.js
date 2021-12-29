@@ -1,7 +1,7 @@
-export function GalleryPage({ title, gallery, content }) {
+export function GalleryPage({ title, gallery, content, id }) {
   return (
     <div>
-      <div className='flex w-screen py-40'>
+      <div className='flex w-screen mb-40' id={id}>
         <Gallery gallery={gallery} title={title} />
         <Content content={content} />
       </div>

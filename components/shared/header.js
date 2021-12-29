@@ -1,13 +1,12 @@
 import ContactButton from '../contact-button';
-import Link from 'next/link';
 import Menu from '../menu';
-import { useRouter } from 'next/router';
+import { ScrollButton } from './scroll-button';
 
 export default function Header() {
   const links = [
-    { text: 'Home', href: '#home' },
-    { text: 'About', href: '/about' },
-    { text: 'Gallery', href: '/gallery' },
+    { text: 'Home', page: 'home' },
+    { text: 'Plastering', page: 'plastering' },
+    { text: 'Rendering', page: 'rendering' },
   ];
 
   return (
@@ -17,9 +16,9 @@ export default function Header() {
           <Menu>
             {links.map((link) => (
               <SideNavLink
-                key={link.href}
+                key={link.page}
                 text={link.text}
-                href={link.href}
+                page={link.page}
               ></SideNavLink>
             ))}
           </Menu>
@@ -31,9 +30,9 @@ export default function Header() {
           {links.map((link) => (
             <HeaderLink
               className='sm:hidden'
-              key={link.href}
+              key={link.page}
               text={link.text}
-              href={link.href}
+              page={link.page}
             ></HeaderLink>
           ))}
         </div>
@@ -45,12 +44,11 @@ export default function Header() {
   );
 }
 
-function SideNavLink({ href, text }) {
-  const router = useRouter();
+function SideNavLink({ page, text }) {
   return (
-    <Link href={href}>
-      <a
-        className={`
+    <ScrollButton
+      page={page}
+      className={`
             text-white 
             px-8 
             py-4 
@@ -58,24 +56,18 @@ function SideNavLink({ href, text }) {
             items-center 
             justify-center 
             relative
-            ${router.pathname === href ? 'bg-white bg-opacity-20' : ''}
             `}
-      >
-        {text}
-        {router.pathname === href ? (
-          <div className='w-2 bg-pink-700 absolute top-0 left-0 bottom-0'></div>
-        ) : null}
-      </a>
-    </Link>
+    >
+      {text}
+    </ScrollButton>
   );
 }
 
-function HeaderLink({ href, text }) {
-  const router = useRouter();
+function HeaderLink({ page, text }) {
   return (
-    <Link href={href}>
-      <a
-        className={` 
+    <ScrollButton
+      page={page}
+      className={` 
           text-white 
           px-8 flex 
           items-center 
@@ -87,12 +79,8 @@ function HeaderLink({ href, text }) {
           active:bg-opacity-30
           relative
           `}
-      >
-        {text}
-        {router.pathname === href ? (
-          <div className='absolute bg-pink-700 h-1 w-full bottom-0 left-0 right-0'></div>
-        ) : null}
-      </a>
-    </Link>
+    >
+      {text}
+    </ScrollButton>
   );
 }
