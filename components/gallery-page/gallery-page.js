@@ -27,6 +27,8 @@ function Gallery({ gallery, title }) {
 
 function Content({ content }) {
   return (
-    <div className='flex-1 p-20 flex flex-col items-center'>{content}</div>
+    <div className='flex-1 p-20 flex flex-col items-center self-end'>
+      {content}
+    </div>
   );
 }
