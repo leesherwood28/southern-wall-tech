@@ -1,5 +1,5 @@
-import Article from '../article';
-import DualPageLayout from '../dual-page-layout';
+import Article from '../../article';
+import DualPageLayout from '../../dual-page-layout';
 import Image from 'next/image';
 
 export function AboutPage() {

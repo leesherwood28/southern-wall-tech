@@ -1,5 +1,5 @@
-import { GalleryPage } from '../shared/gallery-page';
-import { InfoPage } from '../shared/info-page';
+import { GalleryPage } from '../../shared/gallery-page';
+import { InfoPage } from '../../shared/info-page';
 import PlasteringGallery from './plastering-gallery';
 
 export function PlasteringPage({}) {

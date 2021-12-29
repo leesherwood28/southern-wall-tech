@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { AboutPage } from '../components/about/about-page';
-import { HomePage } from '../components/home/homePage';
-import { PlasteringPage } from '../components/plastering/plastering-page';
-import { RenderingPage } from '../components/rendering/rendering-page';
+import { AboutPage } from '../components/_pages/about/about-page';
+import { HomePage } from '../components/_pages/home/homePage';
+import { PlasteringPage } from '../components/_pages/plastering/plastering-page';
+import { RenderingPage } from '../components/_pages/rendering/rendering-page';
 import Contact from './contact';
 
 export default function Index() {
