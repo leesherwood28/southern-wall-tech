@@ -9,13 +9,9 @@ export function RenderingPage({}) {
       id='rendering'
       gallery={<RenderingGallery />}
       content={
-        <div className='flex flex-col items-center'>
-          <div className='py-40'>
-            <RenderingProducts />
-          </div>
-          <div className='py-40'>
-            <RenderingServices />
-          </div>
+        <div className='grid items-center gap-20 lg:gap-40'>
+          <RenderingProducts />
+          <RenderingServices />
         </div>
       }
     ></GalleryPage>

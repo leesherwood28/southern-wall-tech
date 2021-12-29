@@ -9,13 +9,9 @@ export function PlasteringPage({}) {
       id='plastering'
       gallery={<PlasteringGallery />}
       content={
-        <div className='flex flex-col items-center'>
-          <div className='py-40'>
-            <PlasteringProducts />
-          </div>
-          <div className='py-40'>
-            <PlasteringServices />
-          </div>
+        <div className='grid items-center gap-20 lg:gap-40'>
+          <PlasteringProducts />
+          <PlasteringServices />
         </div>
       }
     ></GalleryPage>
