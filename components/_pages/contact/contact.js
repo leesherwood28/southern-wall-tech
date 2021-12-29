@@ -1,19 +1,11 @@
-import Head from 'next/head';
 import Image from 'next/image';
-import Article from '../components/article';
-import ContactForm from '../components/_pages/contact/contact-form';
-import DualPageLayout from '../components/dual-page-layout';
+import Article from '../../article';
+import DualPageLayout from '../../dual-page-layout';
+import ContactForm from './contact-form';
 
-export default function Contact() {
+export default function ContactPage() {
   return (
-    <>
-      <Head>
-        <title>Contact</title>
-        <meta
-          name='description'
-          content='Rendering and Plastering Company Contact'
-        />
-      </Head>
+    <div className='min-h-screen flex items-center'>
       <DualPageLayout>
         <div className='relative h-full w-full'>
           <Image
@@ -28,6 +20,6 @@ export default function Contact() {
           <ContactForm className='w-full'></ContactForm>
         </Article>
       </DualPageLayout>
-    </>
+    </div>
   );
 }
