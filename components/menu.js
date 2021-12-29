@@ -1,17 +1,25 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useRouter } from 'next/router';
+import { ScrollButton } from './shared/scroll-button';
 
-const MenuContext = createContext(false);
+export const MenuContext = createContext(false);
 
-export default function Menu({ children }) {
+export default function Menu({ links }) {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <MenuContext.Provider value={[isOpen, setOpen]}>
       <MenuButton></MenuButton>
-      <MenuOverlay>{children}</MenuOverlay>
+      <MenuOverlay>
+        {links.map((link) => (
+          <SideNavLink
+            key={link.page}
+            text={link.text}
+            page={link.page}
+          ></SideNavLink>
+        ))}
+      </MenuOverlay>
     </MenuContext.Provider>
   );
 }
@@ -72,5 +80,26 @@ function MenuItemSeperator() {
     <div className='flex flex-col items-center'>
       <div className='h-px w-9/12 bg-blue-200 bg-opacity-20'></div>
     </div>
+  );
+}
+
+function SideNavLink({ page, text }) {
+  const [isOpen, setOpen] = useContext(MenuContext);
+  return (
+    <ScrollButton
+      onClick={() => setOpen(false)}
+      page={page}
+      className={`
+            text-white 
+            px-8 
+            py-4 
+            flex 
+            items-center 
+            justify-center 
+            relative
+            `}
+    >
+      {text}
+    </ScrollButton>
   );
 }

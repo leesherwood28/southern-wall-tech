@@ -13,15 +13,7 @@ export default function Header() {
     <header className='bg-black h-12 flex items-stretch flex-none'>
       <div className='flex items-stretch'>
         <div className='flex md:hidden items-stretch'>
-          <Menu>
-            {links.map((link) => (
-              <SideNavLink
-                key={link.page}
-                text={link.text}
-                page={link.page}
-              ></SideNavLink>
-            ))}
-          </Menu>
+          <Menu links={links}></Menu>
         </div>
       </div>
 
@@ -41,25 +33,6 @@ export default function Header() {
         <ContactButton></ContactButton>
       </div>
     </header>
-  );
-}
-
-function SideNavLink({ page, text }) {
-  return (
-    <ScrollButton
-      page={page}
-      className={`
-            text-white 
-            px-8 
-            py-4 
-            flex 
-            items-center 
-            justify-center 
-            relative
-            `}
-    >
-      {text}
-    </ScrollButton>
   );
 }
 
