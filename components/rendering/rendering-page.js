@@ -1,12 +1,11 @@
 import { GalleryPage } from '../gallery-page/gallery-page';
 import { InfoPage } from '../shared/info-page';
-import { SectionTitle } from '../shared/section-title';
 import RenderingGallery from './rendering-gallery';
 
 export function RenderingPage({}) {
   return (
     <GalleryPage
-      title='Plastering'
+      title='Rendering'
       gallery={<RenderingGallery />}
       content={
         <div className='flex flex-col items-center mt-40'>
