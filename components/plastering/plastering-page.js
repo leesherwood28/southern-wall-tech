@@ -1,13 +1,19 @@
+import { GalleryPage } from '../gallery-page/gallery-page';
 import { InfoPage } from '../shared/info-page';
+import PlasteringGallery from './plastering-gallery';
 
-export function PlasteringInfo({}) {
+export function PlasteringPage({}) {
   return (
-    <div>
-      <div className='flex flex-col'>
-        <PlasteringProducts></PlasteringProducts>
-        <PlasteringServices></PlasteringServices>
-      </div>
-    </div>
+    <GalleryPage
+      title='Plastering'
+      gallery={<PlasteringGallery />}
+      content={
+        <div className='flex flex-col items-center pt-20'>
+          <PlasteringProducts />
+          <PlasteringServices />
+        </div>
+      }
+    ></GalleryPage>
   );
 }
 

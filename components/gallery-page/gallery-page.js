@@ -1,11 +1,8 @@
-import { SectionTitle } from '../shared/section-title';
-
 export function GalleryPage({ title, gallery, content }) {
   return (
     <div>
-      <PageTitle title={title} />
-      <div className='flex'>
-        <Gallery gallery={gallery} />
+      <div className='flex w-screen'>
+        <Gallery gallery={gallery} title={title} />
         <Content content={content} />
       </div>
     </div>
@@ -13,14 +10,19 @@ export function GalleryPage({ title, gallery, content }) {
 }
 function PageTitle({ title }) {
   return (
-    <div className='mb-16 text-5xl text-pink-700 italic font-light sticky top-10 w-full flex justify-center'>
+    <div className='mb-16 text-5xl text-pink-700 italic font-light w-full flex justify-center'>
       <span>{title}</span>
     </div>
   );
 }
 
-function Gallery({ gallery }) {
-  return <div className='flex-1 p-20'>{gallery}</div>;
+function Gallery({ gallery, title }) {
+  return (
+    <div className='flex-1 p-20 sticky top-10 self-start'>
+      <PageTitle title={title} />
+      {gallery}
+    </div>
+  );
 }
 
 function Content({ content }) {
