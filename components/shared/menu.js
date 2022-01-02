@@ -99,6 +99,7 @@ function SideNavLink({ page, text }) {
             items-center 
             justify-center 
             relative
+            w-full
             `}
     >
       {text}
