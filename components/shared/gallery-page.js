@@ -18,7 +18,7 @@ function PageTitle({ title }) {
 
 function Gallery({ gallery, title }) {
   return (
-    <div className='py-10 px-20 lg:sticky top-0 self-start'>
+    <div className='py-4 px-2 lg:py-10 lg:px-10 lg:sticky top-0 self-start'>
       <PageTitle title={title} />
       {gallery}
     </div>
@@ -27,6 +27,8 @@ function Gallery({ gallery, title }) {
 
 function Content({ content }) {
   return (
-    <div className='p-20 flex flex-col items-center self-end'>{content}</div>
+    <div className='p-10 lg:p-20 flex flex-col items-center self-end'>
+      {content}
+    </div>
   );
 }
