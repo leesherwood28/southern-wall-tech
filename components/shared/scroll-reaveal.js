@@ -12,7 +12,9 @@ export function ScrollReveal({ children }) {
   });
   return (
     <div ref={ref}>
-      <animated.div style={styles}>{children}</animated.div>
+      <animated.div style={{ willChange: 'opacity, transform', ...styles }}>
+        {children}
+      </animated.div>
     </div>
   );
 }
