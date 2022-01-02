@@ -9,11 +9,13 @@ export default function Header() {
     { text: 'Rendering', page: 'rendering' },
   ];
 
+  const sideNavLinks = [...links, { text: 'Contact', page: 'contact' }];
+
   return (
     <header className='bg-black h-12 flex items-stretch flex-none'>
       <div className='flex items-stretch'>
         <div className='flex md:hidden items-stretch'>
-          <Menu links={links}></Menu>
+          <Menu links={sideNavLinks}></Menu>
         </div>
       </div>
 
