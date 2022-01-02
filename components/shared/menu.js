@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { ScrollButton } from './shared/scroll-button';
+import { ScrollButton } from './scroll-button';
 
 export const MenuContext = createContext(false);
 

@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import Layout from '../components/layout';
+import Layout from '../components/shared/layout';
 import { createTheme, ThemeProvider } from '@material-ui/core';
 
 const theme = createTheme({

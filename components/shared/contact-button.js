@@ -1,5 +1,5 @@
 import { HiOutlineMail } from 'react-icons/hi';
-import { ScrollButton } from './shared/scroll-button';
+import { ScrollButton } from './scroll-button';
 
 export default function ContactButton() {
   return (

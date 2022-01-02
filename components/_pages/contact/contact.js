@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Article from '../../article';
-import DualPageLayout from '../../dual-page-layout';
 import ContactForm from './contact-form';
 
 export default function ContactPage() {
