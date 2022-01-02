@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Article from '../../shared/article';
 import ContactForm from './contact-form';
 
-export default function ContactPage() {
+export function ContactPage() {
   return (
     <div id='contact' className='min-h-screen grid grid-cols-1 lg:grid-cols-2'>
       <div className='relative'>
