@@ -5,12 +5,15 @@ export default function Summary() {
   return (
     <div className='flex flex-col items-center'>
       <div className='text-center text-sm mb-4'>
-        <p className='mb-4'>
-          Welcome to southern wall tech limited. Plastering and rendering
-          contractors, covering Dorset and surrounding areas. We provide
-          services to both the commercial and private sector. We are fully
-          qualified and insured.
-        </p>
+        <ScrollReveal>
+          <p className='mb-4'>
+            Welcome to southern wall tech limited. Plastering and rendering
+            contractors, covering Dorset and surrounding areas. We provide
+            services to both the commercial and private sector. We are fully
+            qualified and insured.
+          </p>
+        </ScrollReveal>
+
         <ScrollReveal>
           <p>
             Here at Southern Wall Tech ltd we specialise in undertaking all
@@ -21,8 +24,9 @@ export default function Summary() {
           </p>
         </ScrollReveal>
       </div>
-
-      <MakeAnInquiryButton></MakeAnInquiryButton>
+      <ScrollReveal>
+        <MakeAnInquiryButton></MakeAnInquiryButton>
+      </ScrollReveal>
     </div>
   );
 }

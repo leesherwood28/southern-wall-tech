@@ -2,6 +2,7 @@ import AdCarousel from './ad-carousel';
 import Summary from './summary';
 import Title from './title';
 import Image from 'next/image';
+import { ScrollReveal } from '../../shared/scroll-reaveal';
 
 export function HomePage() {
   return (
@@ -17,12 +18,14 @@ export function HomePage() {
           <section></section>
 
           <section className='md:px-20'>
-            <Image
-              alt='Southern Wall Tech Title'
-              src='/logo-full.png'
-              width={3400}
-              height={1374}
-            ></Image>
+            <ScrollReveal>
+              <Image
+                alt='Southern Wall Tech Title'
+                src='/logo-full.png'
+                width={3400}
+                height={1374}
+              ></Image>
+            </ScrollReveal>
           </section>
 
           <section className='mt-4 px-4 w-full sm:w-3/5'>
