@@ -1,6 +1,7 @@
 import ContactButton from './contact-button';
 import Menu from './menu';
 import { ScrollButton } from './scroll-button';
+import Image from 'next/image';
 
 export default function Header() {
   const links = [
@@ -18,7 +19,7 @@ export default function Header() {
           <Menu links={sideNavLinks}></Menu>
         </div>
       </div>
-
+      <HeaderAppName></HeaderAppName>
       <div className='flex-grow flex items-stretch justify-center'>
         <div className='hidden items-stretch md:flex'>
           {links.map((link) => (
@@ -35,6 +36,17 @@ export default function Header() {
         <ContactButton></ContactButton>
       </div>
     </header>
+  );
+}
+
+function HeaderAppName() {
+  return (
+    <h1 className='text-white font-bold text-xs flex items-center  flex-shrink-0 md:px-4 md:text-lg'>
+      <div className='mr-2 flex items-center w-8'>
+        <Image src='/logo.png' width={390} height={331} alt='logo'></Image>
+      </div>
+      SOUTHERN WALL TECH
+    </h1>
   );
 }
 
