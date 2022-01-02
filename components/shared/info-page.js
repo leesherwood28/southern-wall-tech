@@ -1,19 +1,28 @@
 import { ProductsTitle, ServicesTitle } from './titles';
 import { FaTools, FaToolbox } from 'react-icons/fa';
+import { ScrollReveal } from './scroll-reaveal';
 export function InfoPage({ text, items, type, intro }) {
   return (
     <div className='flex flex-col items-center max-w-xl'>
       <div className='mb-8'>
-        <Title type={type}></Title>
+        <ScrollReveal>
+          <Title type={type}></Title>
+        </ScrollReveal>
       </div>
       <div className='mb-8 lg:self-start'>
-        <Intro intro={intro} />
+        <ScrollReveal>
+          <Intro intro={intro} />
+        </ScrollReveal>
       </div>
       <div className='mb-8'>
-        <List items={items} />
+        <ScrollReveal>
+          <List items={items} />
+        </ScrollReveal>
       </div>
       <div className='mb-8'>
-        <Text text={text} />
+        <ScrollReveal>
+          <Text text={text} />
+        </ScrollReveal>
       </div>
     </div>
   );

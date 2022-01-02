@@ -1,3 +1,5 @@
+import { ScrollReveal } from './scroll-reaveal';
+
 export function GalleryPage({ title, gallery, content, id }) {
   return (
     <div>
@@ -19,8 +21,10 @@ function PageTitle({ title }) {
 function Gallery({ gallery, title }) {
   return (
     <div className='py-4 px-2 lg:py-10 lg:px-10 lg:sticky top-0 self-start'>
-      <PageTitle title={title} />
-      {gallery}
+      <ScrollReveal>
+        <PageTitle title={title} />
+      </ScrollReveal>
+      <ScrollReveal>{gallery}</ScrollReveal>
     </div>
   );
 }
