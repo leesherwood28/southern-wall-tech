@@ -14,7 +14,7 @@ export default function RenderingGallery() {
       thumbnail: '/rendered-exterior-wall-corner.jpg',
       thumbnailAlt: 'Image of a rendered exterior wall corner thumbnail.',
     },
-    ...Array.from(Array(6).keys()).map((i) => ({
+    ...Array.from(Array(5).keys()).map((i) => ({
       original: `/rendered-wall-${i + 1}.jpg`,
       originalAlt: 'Image of a rendered wall',
       thumbnail: `/rendered-wall-${i + 1}.jpg`,
