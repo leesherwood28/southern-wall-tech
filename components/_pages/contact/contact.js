@@ -34,10 +34,10 @@ export function ContactPage() {
 
 function ContactInformation() {
   return (
-    <ul className='grid gap-4 mt-8'>
+    <ul className='grid gap-4 mt-8 text-lg lg:text-2xl'>
       <li>
         <a
-          className='flex items-center text-pink-700'
+          className='flex items-center text-pink-700 hover:text-pink-900'
           href='mailto:jaron@southernwalltech.co.uk'
         >
           <HiOutlineMail className='mr-4'></HiOutlineMail>
