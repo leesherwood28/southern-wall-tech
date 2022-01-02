@@ -19,6 +19,13 @@ a {
   overflow: hidden;
 }
 
+#home,
+#plastering,
+#rendering,
+#contact {
+  scroll-margin-top: 3rem;
+}
+
 /* ./styles/globals.css */
 @tailwind base;
 @tailwind components;
