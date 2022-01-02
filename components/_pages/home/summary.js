@@ -1,4 +1,5 @@
 import MakeAnInquiryButton from '../../shared/make-an-inquiry-button';
+import { ScrollReveal } from '../../shared/scroll-reaveal';
 
 export default function Summary() {
   return (
@@ -10,13 +11,15 @@ export default function Summary() {
           services to both the commercial and private sector. We are fully
           qualified and insured.
         </p>
-        <p>
-          Here at Southern Wall Tech ltd we specialise in undertaking all
-          aspects of plastering and rendering, meeting any requirements and
-          specifications our clients need. We work with all types of customers,
-          from small residential projects to large commercial building
-          developments.
-        </p>
+        <ScrollReveal>
+          <p>
+            Here at Southern Wall Tech ltd we specialise in undertaking all
+            aspects of plastering and rendering, meeting any requirements and
+            specifications our clients need. We work with all types of
+            customers, from small residential projects to large commercial
+            building developments.
+          </p>
+        </ScrollReveal>
       </div>
 
       <MakeAnInquiryButton></MakeAnInquiryButton>
