@@ -2,23 +2,24 @@ import Image from 'next/image';
 import { HiOutlineMail, HiPhone } from 'react-icons/hi';
 import Article from '../../shared/article';
 import { ScrollReveal } from '../../shared/scroll-reaveal';
-import { Title } from '../../shared/titles';
 import ContactForm from './contact-form';
 
 export function ContactPage() {
   return (
     <div
       id='contact'
-      className='min-h-screen grid grid-cols-1 lg:grid-cols-2 pt-4'
+      className='min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:items-center pt-4'
     >
       <div className='relative'>
         <ScrollReveal>
-          <Image
-            src='/message.svg'
-            alt='Picture of envelope'
-            layout='fill'
-            objectFit='contain'
-          ></Image>
+          <div className='px-4'>
+            <Image
+              src='/message.svg'
+              alt='Picture of envelope'
+              height={631}
+              width={949}
+            ></Image>
+          </div>
         </ScrollReveal>
       </div>
 
