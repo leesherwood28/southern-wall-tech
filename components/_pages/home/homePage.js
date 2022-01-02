@@ -12,7 +12,9 @@ export function HomePage() {
         className='flex flex-col items-center py-0 sm:py-10 w-screen'
       >
         <section className='w-full'>
-          <AdCarousel></AdCarousel>
+          <ScrollReveal>
+            <AdCarousel></AdCarousel>
+          </ScrollReveal>
         </section>
         <div className='lg:w-4/5 xl:w-3/5 flex flex-col items-center'>
           <section></section>
