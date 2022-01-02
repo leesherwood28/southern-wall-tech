@@ -1,5 +1,5 @@
-import ContactButton from '../contact-button';
-import Menu from '../menu';
+import ContactButton from './contact-button';
+import Menu from './menu';
 import { ScrollButton } from './scroll-button';
 
 export default function Header() {

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Article from '../../article';
+import Article from '../../shared/article';
 import ContactForm from './contact-form';
 
 export default function ContactPage() {

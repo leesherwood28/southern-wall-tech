@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { AboutPage } from '../components/_pages/about/about-page';
 import ContactPage from '../components/_pages/contact/contact';
 import { HomePage } from '../components/_pages/home/homePage';
 import { PlasteringPage } from '../components/_pages/plastering/plastering-page';
