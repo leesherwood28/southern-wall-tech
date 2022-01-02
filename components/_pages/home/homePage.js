@@ -1,6 +1,5 @@
 import AdCarousel from './ad-carousel';
 import Summary from './summary';
-import Title from './title';
 import Image from 'next/image';
 import { ScrollReveal } from '../../shared/scroll-reaveal';
 
