@@ -25,6 +25,7 @@ export function HomePage() {
                 src='/logo-full.png'
                 width={3400}
                 height={1374}
+                priority
               ></Image>
             </ScrollReveal>
           </section>
