@@ -38,6 +38,12 @@ export default function PlasteringGallery() {
       thumbnail: '/rendered-room-with-staggered-ceiling.jpg',
       thumbnailAlt: 'Image of a rendered room with staggered ceiling.',
     },
+    ...Array.from(Array(13).keys()).map((i) => ({
+      original: `/plastered-wall-${i + 1}.jpg`,
+      originalAlt: 'Image of a plastered wall',
+      thumbnail: `/plastered-wall-${i + 1}.jpg`,
+      thumbnailAlt: 'Image of a plastered wall',
+    })),
   ];
 
   return <ImageGallery items={images} autoPlay={true}></ImageGallery>;
