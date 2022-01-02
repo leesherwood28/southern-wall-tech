@@ -31,6 +31,8 @@ function MenuButton() {
     <button
       onClick={() => setOpen(!isOpen)}
       className='text-white h-12 w-12 flex items-center justify-center hover:bg-white hover:bg-opacity-20'
+      aria-label='open menu'
+      role='menu'
     >
       <GiHamburgerMenu></GiHamburgerMenu>
     </button>
