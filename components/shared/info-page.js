@@ -6,7 +6,7 @@ export function InfoPage({ text, items, type, intro }) {
       <div className='mb-8'>
         <Title type={type}></Title>
       </div>
-      <div className='mb-8 self-start'>
+      <div className='mb-8 lg:self-start'>
         <Intro intro={intro} />
       </div>
       <div className='mb-8'>
@@ -40,7 +40,7 @@ function Intro({ intro }) {
 
 function List({ items }) {
   return (
-    <ol className='flex flex-wrap'>
+    <ol className='flex flex-wrap justify-center lg:justify-start'>
       {items.map((item) => (
         <ItemChip key={item} item={item} />
       ))}
