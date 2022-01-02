@@ -9,7 +9,7 @@ export function RenderingPage({}) {
       id='rendering'
       gallery={<RenderingGallery />}
       content={
-        <div className='grid items-center gap-20 lg:gap-40'>
+        <div className='grid items-center gap-10 lg:gap-40'>
           <RenderingProducts />
           <RenderingServices />
         </div>
