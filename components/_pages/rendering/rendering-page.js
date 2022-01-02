@@ -27,7 +27,7 @@ function RenderingProducts({}) {
     'External Wall Insulation (EWI)',
     'Sand and Cement Render',
     'Pebbledash',
-    'Line Render',
+    'Lime Render',
     'Through Colour Render',
   ];
   const text = `We are experts in our field and have worked on many rendering
