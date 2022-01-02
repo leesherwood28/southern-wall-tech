@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { HiOutlineMail } from 'react-icons/hi';
+import { HiOutlineMail, HiPhone } from 'react-icons/hi';
 import Article from '../../shared/article';
 import { ScrollReveal } from '../../shared/scroll-reaveal';
 import { Title } from '../../shared/titles';
@@ -34,21 +34,25 @@ export function ContactPage() {
 
 function ContactInformation() {
   return (
-    <div className='mt-4'>
-      <h2 className='font-light text-3xl italic mb-8 text-pink-700'>
-        Contact Information
-      </h2>
-      <ul>
-        <li className='flex items-center'>
-          <HiOutlineMail className='mr-4'></HiOutlineMail> email
-        </li>
-        <li>
-          <HiOutlineMail></HiOutlineMail> email
-        </li>
-        <li>
-          <HiOutlineMail></HiOutlineMail> email
-        </li>
-      </ul>
-    </div>
+    <ul className='grid gap-4 mt-8'>
+      <li>
+        <a
+          className='flex items-center text-pink-700'
+          href='mailto:jaron@southernwalltech.co.uk'
+        >
+          <HiOutlineMail className='mr-4'></HiOutlineMail>
+          jaron@southernwalltech.co.uk
+        </a>
+      </li>
+      <li>
+        <a
+          className='flex items-center text-pink-700 hover:text-pink-900'
+          href='tel:+447845297278'
+        >
+          <HiPhone className='mr-4'></HiPhone>
+          +44 7845 297278
+        </a>
+      </li>
+    </ul>
   );
 }
