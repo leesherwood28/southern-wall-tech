@@ -1,18 +1,21 @@
-import Link from 'next/link';
-
 export function ScrollButton({ page, children, className, onClick }) {
+  const scrollToPage = () => {
+    const element = document.getElementById(page);
+    const scrollContainer = document.getElementById('main');
+    const headerHeight = document.getElementById('header').clientHeight;
+    scrollContainer.scrollTo({ top: element.offsetTop - headerHeight });
+  };
   return (
-    <Link href={`/#${page}`}>
-      <a
-        className={className}
-        onClick={() => {
-          if (onClick) {
-            onClick();
-          }
-        }}
-      >
-        {children}
-      </a>
-    </Link>
+    <button
+      className={className}
+      onClick={() => {
+        scrollToPage();
+        if (onClick) {
+          onClick();
+        }
+      }}
+    >
+      {children}
+    </button>
   );
 }
