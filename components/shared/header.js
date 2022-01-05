@@ -44,12 +44,12 @@ export default function Header() {
 
 function HeaderAppName() {
   return (
-    <h1 className='text-white font-bold text-xs flex items-center  flex-shrink-0 md:px-4 md:text-lg'>
+    <div className='text-white font-bold text-xs flex items-center  flex-shrink-0 md:px-4 md:text-lg'>
       <div className='mr-2 flex items-center w-8'>
         <Image src='/logo.png' width={390} height={331} alt='logo'></Image>
       </div>
       SOUTHERN WALL TECH
-    </h1>
+    </div>
   );
 }
 
