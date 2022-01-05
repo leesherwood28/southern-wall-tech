@@ -12,11 +12,11 @@ export function Title() {
         ></Image>
       </div>
 
-      <div className='text-3xl sm:text-4xl md:text-5xl font-light text-center sm:mb-2'>
-        Southern Wall Tech
+      <div className='font-bold text-2xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-center sm:mb-2 whitespace-nowrap'>
+        SOUTHERN WALL TECH
       </div>
-      <h1 className='sm:text-xl italic text-center text-pink-700'>
-        Rendering and Plastering Specialists
+      <h1 className='text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl italic text-center text-pink-700 whitespace-nowrap'>
+        Plasterer and Renderer Contractors
       </h1>
     </div>
   );
