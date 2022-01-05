@@ -14,7 +14,7 @@ export default function Index() {
         </title>
         <meta
           name='description'
-          content='High Quality Plasterering and Rendering Solutions operating on South Coast'
+          content='High Quality Plasterering and Rendering Solutions operating in Dorset.'
         />
       </Head>
       <div className='grid gap-20'>
