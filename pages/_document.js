@@ -9,6 +9,7 @@ class MyDocument extends Document {
         <Head>
           <link rel='icon' href='/logo.png' />
           <meta name='robots' content='all' />
+          <meta name='google' content='nositelinkssearchbox' />
           <link
             href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
             rel='stylesheet'
