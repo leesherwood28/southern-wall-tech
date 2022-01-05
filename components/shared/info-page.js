@@ -1,4 +1,3 @@
-import { ProductsTitle, ServicesTitle } from './titles';
 import { FaTools, FaToolbox } from 'react-icons/fa';
 import { ScrollReveal } from './scroll-reaveal';
 export function InfoPage({ text, items, type, intro }) {

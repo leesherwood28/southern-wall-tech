@@ -2,6 +2,7 @@ import AdCarousel from './ad-carousel';
 import Summary from './summary';
 import Image from 'next/image';
 import { ScrollReveal } from '../../shared/scroll-reaveal';
+import { Title } from './title';
 
 export function HomePage() {
   return (
@@ -27,6 +28,7 @@ export function HomePage() {
                 height={1374}
                 priority
               ></Image>
+              <Title></Title>
             </ScrollReveal>
           </section>
 
