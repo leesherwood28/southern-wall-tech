@@ -10,6 +10,14 @@ class MyDocument extends Document {
           <link rel='icon' href='/logo.png' />
           <meta name='robots' content='all' />
           <meta name='google' content='nositelinkssearchbox' />
+          <meta
+            property='og:description'
+            content='High Quality Plastering and Rendering Solutions'
+          />
+          <meta
+            property='og:image'
+            content='https://southernwalltech.com/index.png'
+          />
           <link
             href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
             rel='stylesheet'
