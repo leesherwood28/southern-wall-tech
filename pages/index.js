@@ -8,7 +8,10 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Southern Wall Tech</title>
+        <title>
+          Plasterer and Renderer contractors in bournemouth and poole - Southern
+          Wall Tech
+        </title>
         <meta
           name='description'
           content='Dorset Plastering and Rendering Solutions'
