@@ -9,12 +9,12 @@ export default function Index() {
     <>
       <Head>
         <title>
-          Plasterer and Renderer contractors in bournemouth and poole - Southern
+          Plasterer and Renderer contractors in Bournemouth and Poole - Southern
           Wall Tech
         </title>
         <meta
           name='description'
-          content='Dorset Plastering and Rendering Solutions'
+          content='High Quality Plasterering and Rendering Solutions operating on South Coast'
         />
       </Head>
       <div className='grid gap-20'>
