@@ -8,11 +8,11 @@ export function ContactPage() {
   return (
     <div
       id='contact'
-      className='min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:items-center pt-4'
+      className='min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:items-center pt-4 content-start lg:content-center'
     >
       <div className='relative'>
         <ScrollReveal>
-          <div className='px-4'>
+          <div className='px-24 lg:px-4'>
             <Image
               src='/message.svg'
               alt='Picture of envelope'
