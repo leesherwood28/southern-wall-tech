@@ -12,7 +12,7 @@ export function ContactPage() {
     >
       <div className='relative'>
         <ScrollReveal>
-          <div className='px-24 lg:px-4'>
+          <div className='px-20 lg:px-4'>
             <Image
               src='/message.svg'
               alt='Picture of envelope'
