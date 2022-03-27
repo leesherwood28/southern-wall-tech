@@ -9,13 +9,13 @@ class MyDocument extends Document {
       <Html lang='en'>
         <Script
           strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=UA-210416830-58`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
         ></Script>
         <Script strategy='lazyOnload'>
           {`
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'UA-210416830-58');
+          gtag('config', '${process.env.GOOGLE_ANALYTICS}');
           `}
         </Script>
         <Head>
