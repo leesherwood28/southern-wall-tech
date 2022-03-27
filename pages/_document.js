@@ -1,11 +1,23 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import React from 'react';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
+        <Script
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtag/js?id=UA-210416830-58`}
+        ></Script>
+        <Script strategy='lazyOnload'>
+          {`
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-210416830-58');
+          `}
+        </Script>
         <Head>
           <link rel='icon' href='/logo.png' />
           <meta name='robots' content='all' />
