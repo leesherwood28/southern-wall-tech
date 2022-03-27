@@ -61,10 +61,10 @@ class MyDocument extends Document {
                     "currenciesAccepted" : "GBP",
                     "email" : "jaron@southernwalltech.co.uk",
                     "address": {
-                    "@type" : "PostalAddress",
-                    "addressRegion": "Dorset",
-                    "addressCountry": "United Kingdom",
-                    "telephone" : "+44 (0)7845 297278"
+                      "@type" : "PostalAddress",
+                      "addressRegion": "Dorset",
+                      "addressCountry": "United Kingdom",
+                      "telephone" : "+44 (0)7845 297278"
                     },
                     "openingHours": "Mo-Fr 07:30-17:30"
                   }
