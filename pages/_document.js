@@ -36,6 +36,43 @@ class MyDocument extends Document {
           `,
             }}
           />
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{
+              __html: `
+                {
+                  "@context": {
+                    "@vocab": "http://schema.org/"
+                  },
+                  "@graph": [
+                  {
+                    "@id": "https://southernwalltech.com/",
+                    "@type": "HomeandConstructionBusiness",
+                    "name": "Southern Wall Tech",
+                    "areaServed" : "Poole, Bournemouth",
+                    "description": "High Quality Plastering and Rendering Solutions operating in Dorset.",
+                    "url" : "https://southernwalltech.com/",
+                    "hasMap" : "https://www.google.co.uk/maps/place/Southern+Wall+Tech/@50.8105276,-
+                    2.7035514,9z/data=!3m1!4b1!4m5!3m4!1s0xa4fc33cce4c4b537:0x25648800b97bb8c!8m2!3d50.8
+                    118763!4d-2.1417912",
+                    "logo" : "https://southernwalltech.com/_next/image?url=%2Flogo.png&w=828&q=75",
+                    "image" : "https://southernwalltech.com/_next/image?url=%2Flogo.png&w=828&q=75",
+                    "priceRange" : "££",
+                    "currenciesAccepted" : "GBP",
+                    "email" : "jaron@southernwalltech.co.uk",
+                    "address": {
+                    "@type" : "PostalAddress",
+                    "addressRegion": "Dorset",
+                    "addressCountry": "United Kingdom",
+                    "telephone" : "+44 (0)7845 297278"
+                    },
+                    "openingHours": "Mo-Fr 07:30-17:30"
+                  }
+                  ]
+                }
+            `,
+            }}
+          ></script>
         </Head>
         <body>
           <Main />
