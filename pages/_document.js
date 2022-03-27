@@ -1,23 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import React from 'react';
-import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <Script
-          strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
-        ></Script>
-        <Script strategy='lazyOnload'>
-          {`
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.GOOGLE_ANALYTICS}');
-          `}
-        </Script>
         <Head>
           <link rel='icon' href='/logo.png' />
           <meta name='robots' content='all' />
@@ -34,6 +22,18 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
             rel='stylesheet'
           ></link>
+          <script
+            async
+            src='https://www.googletagmanager.com/gtag/js?id=UA-210416830-58'
+          ></script>
+          <script>
+            {`          
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-210416830-58');
+              `}
+          </script>
         </Head>
         <body>
           <Main />
