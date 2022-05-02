@@ -1,6 +1,6 @@
 export default {
-  name: 'category',
-  title: 'Category',
+  name: 'block',
+  title: 'Section',
   type: 'document',
   fields: [
     {
@@ -14,4 +14,4 @@ export default {
       type: 'text',
     },
   ],
-}
+};
