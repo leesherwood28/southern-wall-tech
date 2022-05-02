@@ -18,6 +18,7 @@ export async function getStaticProps() {
 }
 
 export default function Index({ intro, services }) {
+  console.log(services);
   return (
     <>
       <Head>
@@ -32,8 +33,6 @@ export default function Index({ intro, services }) {
       </Head>
       <div className='grid gap-20'>
         <HomePage intro={intro} />
-        <PlasteringPage />
-        <RenderingPage />
         <ContactPage />
       </div>
     </>

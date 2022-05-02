@@ -4,7 +4,6 @@ import { ScrollReveal } from '../../shared/scroll-reaveal';
 import { Title } from './title';
 
 export function HomePage({ intro }) {
-  console.log(intro);
   return (
     <>
       <div
