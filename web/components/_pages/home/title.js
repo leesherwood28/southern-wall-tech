@@ -1,5 +1,5 @@
 import Image from 'next/image';
-export function Title() {
+export function Title({ subtitle }) {
   return (
     <div className='flex flex-col items-center'>
       <div style={{ width: '20%' }}>
@@ -16,7 +16,7 @@ export function Title() {
         SOUTHERN WALL TECH
       </div>
       <h1 className='text-sm xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl italic text-center text-pink-700 whitespace-nowrap'>
-        Plasterer and Renderer Contractors
+        {subtitle}
       </h1>
     </div>
   );

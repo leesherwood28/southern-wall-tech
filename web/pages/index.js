@@ -3,18 +3,21 @@ import { ContactPage } from '../components/_pages/contact/contact';
 import { HomePage } from '../components/_pages/home/homePage';
 import { PlasteringPage } from '../components/_pages/plastering/plastering-page';
 import { RenderingPage } from '../components/_pages/rendering/rendering-page';
+import client from '../sanity-client';
 
 export async function getStaticProps() {
-  const intro = await client.fetch(`*[_type == "intro"]`);
+  const [intro] = await client.fetch(`*[_type == "intro"]`);
+  const services = await client.fetch(`*[_type == "service"]`);
   return {
     props: {
       intro,
+      services,
     },
-    revalidate: 1000, // In seconds
+    revalidate: 1000,
   };
 }
 
-export default function Index() {
+export default function Index({ intro, services }) {
   return (
     <>
       <Head>
@@ -28,7 +31,7 @@ export default function Index() {
         />
       </Head>
       <div className='grid gap-20'>
-        <HomePage />
+        <HomePage intro={intro} />
         <PlasteringPage />
         <RenderingPage />
         <ContactPage />

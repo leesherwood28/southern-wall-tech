@@ -3,7 +3,8 @@ import Summary from './summary';
 import { ScrollReveal } from '../../shared/scroll-reaveal';
 import { Title } from './title';
 
-export function HomePage() {
+export function HomePage({ intro }) {
+  console.log(intro);
   return (
     <>
       <div
@@ -20,12 +21,12 @@ export function HomePage() {
 
           <section className='md:px-20'>
             <ScrollReveal>
-              <Title></Title>
+              <Title subtitle={intro.subtitle}></Title>
             </ScrollReveal>
           </section>
 
           <section className='mt-4 px-4 w-full sm:w-3/5'>
-            <Summary></Summary>
+            <Summary summary={intro.intro}></Summary>
           </section>
         </div>
       </div>
