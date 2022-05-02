@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { GalleryPage } from '../components/shared/gallery-page';
 import { InfoPage } from '../components/shared/info-page';
+import { ServicePage } from '../components/shared/service-page';
 import { ContactPage } from '../components/_pages/contact/contact';
 import { HomePage } from '../components/_pages/home/homePage';
 import { PlasteringPage } from '../components/_pages/plastering/plastering-page';
@@ -10,7 +11,9 @@ import client from '../sanity-client';
 
 export async function getStaticProps() {
   const [intro] = await client.fetch(`*[_type == "intro"]`);
-  const services = await client.fetch(`*[_type == "service"]`);
+  const services = (await client.fetch(`*[_type == "service"]`)).sort((x, y) =>
+    x.service.localeCompare(y.service)
+  );
   return {
     props: {
       intro,
@@ -37,28 +40,7 @@ export default function Index({ intro, services }) {
       <div className='grid gap-20'>
         <HomePage intro={intro} />
         {services.map((s, i) => (
-          <GalleryPage
-            key={s.service}
-            title={s.service}
-            id={s.service}
-            gallery={<RenderingGallery />}
-            content={
-              <div className='grid items-center gap-10 lg:gap-40'>
-                <InfoPage
-                  type='products'
-                  items={s.products.items}
-                  text={s.products.description}
-                  intro={s.products.subtitle}
-                ></InfoPage>
-                <InfoPage
-                  type='services'
-                  items={s.services.items}
-                  text={s.services.description}
-                  intro={s.services.subtitle}
-                ></InfoPage>
-              </div>
-            }
-          />
+          <ServicePage key={s.service} service={s} />
         ))}
         <ContactPage />
       </div>
