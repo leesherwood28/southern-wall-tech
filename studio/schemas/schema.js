@@ -6,6 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // We import object and document schemas
 import service from './service';
+import gallery from './gallery';
+import section from './section';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,5 +19,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     service,
+    gallery,
+    section,
   ]),
 });
