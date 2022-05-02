@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import service from './service';
 import gallery from './gallery';
 import section from './section';
+import intro from './intro';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -15,11 +16,5 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    service,
-    gallery,
-    section,
-  ]),
+  types: schemaTypes.concat([intro, service, gallery, section]),
 });

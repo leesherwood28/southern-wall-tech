@@ -20,7 +20,7 @@ export default {
       name: 'description',
       title: 'Description',
       description: 'The section description',
-      type: 'string',
+      type: 'text',
     },
   ],
 };
