@@ -1,14 +1,16 @@
 import RenderingGallery from '../_pages/rendering/rendering-gallery';
 import { GalleryPage } from './gallery-page';
+import { ImageGallery } from './image-gallery';
 import { InfoPage } from './info-page';
 
 export function ServicePage({ service }) {
+  console.log('SERVICE', service);
   return (
     <GalleryPage
       key={service.service}
       title={service.service}
       id={service.service}
-      gallery={<RenderingGallery />}
+      gallery={<ImageGallery images={service.gallery} />}
       content={
         <div className='grid items-center gap-10 lg:gap-40'>
           <InfoPage

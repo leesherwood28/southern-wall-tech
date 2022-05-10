@@ -13,6 +13,7 @@
     "@next/bundle-analyzer": "^11.1.0",
     "@react-spring/parallax": "^9.3.1",
     "@sanity/client": "^3.3.0",
+    "@sanity/image-url": "^1.0.1",
     "axios": "^0.21.1",
     "lodash.clamp": "^4.0.3",
     "next": "12",
