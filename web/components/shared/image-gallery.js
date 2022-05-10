@@ -7,13 +7,20 @@ const builder = imageUrlBuilder(client);
 
 export function ImageGallery({ images }) {
   const imageUrls = (images || []).map((i) =>
-    builder.image(i).width(300).height(300).url()
+    builder.image(i).width(800).height(400).url()
   );
   return (
     <Gallery
+      className='w-120 h-120'
+      autoRotate={true}
       children={imageUrls.map((url, i) => (
-        // <div key={i}>{url}</div>
-        <Image key={url} src={url} width={300} height={300}></Image>
+        <Image
+          key={url}
+          src={url}
+          width={800}
+          height={400}
+          layout='responsive'
+        ></Image>
       ))}
     ></Gallery>
   );
