@@ -19,7 +19,6 @@ export async function getStaticProps() {
 }
 
 export default function Index({ intro, services }) {
-  console.log(services);
   return (
     <>
       <Head>
