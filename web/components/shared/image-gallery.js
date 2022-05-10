@@ -10,10 +10,8 @@ export function ImageGallery({ images }) {
     builder.image(i).width(800).height(400).url()
   );
   return (
-    <Gallery
-      className='w-120 h-120'
-      autoRotate={true}
-      children={imageUrls.map((url, i) => (
+    <Gallery className='w-120 h-120' autoRotate={true}>
+      {imageUrls.map((url, i) => (
         <Image
           key={url}
           src={url}
@@ -22,6 +20,6 @@ export function ImageGallery({ images }) {
           layout='responsive'
         ></Image>
       ))}
-    ></Gallery>
+    </Gallery>
   );
 }
