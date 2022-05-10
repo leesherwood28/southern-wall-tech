@@ -1,12 +1,7 @@
 import Head from 'next/head';
-import { GalleryPage } from '../components/shared/gallery-page';
-import { InfoPage } from '../components/shared/info-page';
 import { ServicePage } from '../components/shared/service-page';
 import { ContactPage } from '../components/_pages/contact/contact';
 import { HomePage } from '../components/_pages/home/homePage';
-import { PlasteringPage } from '../components/_pages/plastering/plastering-page';
-import RenderingGallery from '../components/_pages/rendering/rendering-gallery';
-import { RenderingPage } from '../components/_pages/rendering/rendering-page';
 import client from '../sanity-client';
 
 export async function getStaticProps() {
